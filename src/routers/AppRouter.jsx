@@ -9,6 +9,7 @@ import { NavbarLM } from '../components/layouts/NavbarLM';
 import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { Recetas } from '../components/recetas/Recetas';
 
+
 export const AppRouter = () => {
   return (
         <BrowserRouter>
