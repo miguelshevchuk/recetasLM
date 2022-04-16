@@ -1,19 +1,115 @@
-import React from 'react'
-import { Row, Col, Form, Button } from 'react-bootstrap'
-import { MasFiltros } from './MasFiltros';
+import {React, useState} from 'react'
+import { Row, Col, Form, Button,  Offcanvas, FloatingLabel} from 'react-bootstrap'
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useForm } from '../../../hooks/useForm';
+import queryString from 'query-string'
 
 export const FiltroRecetas = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
+
+  const [ formValues, handleInputChange ] = useForm({
+    searchText: desc,
+    searchTipo: tipo,
+    searchDificultad: dif,
+  });
+
+  const { searchText, searchTipo, searchDificultad } = formValues;
+
+  const filtrar = (e) => {
+    handleClose();
+    e.preventDefault();
+    let nText = ''
+    if(searchText){
+      nText = `?desc=${ searchText }`
+    }
+    if(searchTipo){
+      nText += (nText === '')?'?' : '&'
+      nText +=`tipo=${ searchTipo }`
+    }
+    if(searchDificultad){
+      nText += (nText === '')?'?' : '&'
+      nText += `dif=${ searchDificultad }`
+    }
+    navigate(`${ nText }`)
+  }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
       <>
-        <Form>
+        <Form id="formFiltros" onSubmit={ filtrar }>
             <Row>
                 <Col>
-                 <Form.Control placeholder="Ingrese su busqueda" />
+                  <Form.Control 
+                    type="text"
+                    placeholder="Ingrese su busqueda" 
+                    name="searchText"
+                    className="form-control"
+                    value={ searchText }
+                    onChange={ handleInputChange }
+                  />
+                  
                 </Col>
                 <Col>
-                    <MasFiltros />
-                </Col>
+                  <button className="btn btn-outline-secondary" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                    </svg>
+                    <span className="visually-hidden">Button</span>
+                  </button>
+                  <a  onClick={handleShow} className="p-3 link-info">
+                    Mas Filtros
+                  </a>
+                </Col>               
                 
+            </Row>
+            <Row>
+              <Col>
+                
+                <Offcanvas show={show} onHide={handleClose}>
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Mas Filtros</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                      <FloatingLabel controlId="floatingSelect" label="Categoria" className="mb-3">
+                          <Form.Select aria-label="Seleccione una categoria"
+                              name="searchTipo"
+                              value={ searchTipo }
+                              onChange={ handleInputChange }>
+                                    <option>Seleccione una categoria</option>
+                                    <option value="postre">Postre</option>
+                                    <option value="ensalada">Ensalada</option>
+                                    <option value="sopa">Sopa</option>
+                                    <option value="guiso">Guiso</option>
+                                    <option value="carne">Carnes</option>
+                                    <option value="pollo">Pollo</option>
+                                    <option value="otros">Otros</option>
+                          </Form.Select>
+                      </FloatingLabel>
+                      <FloatingLabel controlId="floatingSelect" label="Dificultad" className="mb-3">
+                          <Form.Select aria-label="Seleccione una dificultad"
+                              name="searchDificultad"
+                              value={ searchDificultad }
+                              onChange={ handleInputChange }>
+                                    <option>Seleccione una dificultad</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                          </Form.Select>
+                      </FloatingLabel>
+                      <button className="btn btn-success" type="submit" onClick={filtrar}>Aplicar</button>
+                  </Offcanvas.Body>
+                </Offcanvas>
+              </Col>
             </Row>
         </Form>
         

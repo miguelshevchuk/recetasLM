@@ -1,7 +1,8 @@
 import React from 'react'
 import { Image, ListGroup, Accordion } from 'react-bootstrap'
+import { Card, Button, Col } from 'react-bootstrap'
 import { useParams, Navigate } from 'react-router-dom'
-import { getRecetaById } from '../../data/recetas/getRecetaById'
+import { getRecetaById } from '../../data/recetas/metodos'
 
 export const DetalleReceta = () => {
 
@@ -13,41 +14,45 @@ export const DetalleReceta = () => {
   }
 
   return (
-    <div className='container mt-5 center'>
+ <>
+  <div className='container mt-5 center border float-start float-sm-start' >
         <h1>{receta.nombre}</h1>
-        <div>
-          <Image src={receta.imagen} />
+        <hr className='mb-0'/>
+        <div className='float-start float-sm-start mt-3' style={{ width: '370px' }}>
+          <Image src={receta.imagen} style={{ width: '350px' }}/>
         </div>
-        <div className='mt-3'>
-          <h3>Ingredientes</h3>
-          <ListGroup as="ol" numbered>
-            {
-              receta.ingredientes.map(ingrediente => {
-                return <ListGroup.Item as="li">{ingrediente}</ListGroup.Item>
-              })
-            }
-            
-          </ListGroup>
-        </div>
-        <div className='mt-3 mb-5'>
-          <h3>Preparacion</h3>
-          <Accordion>
-            {
-              receta.preparacion.map(pasoPreparacion => {
-                return (
-                <Accordion.Item eventKey={pasoPreparacion.paso}>
-                  <Accordion.Header>Paso {pasoPreparacion.paso}</Accordion.Header>
-                  <Accordion.Body>
-                    {pasoPreparacion.descripcion}
-                  </Accordion.Body>
-                </Accordion.Item>
-                )
-              })
-            }
-          </Accordion>
-        </div>
+        <div className='float-start border-start p-3' style={{ width: '350px' }}>
+          <div>
+            <h3 className='mt-3'>Ingredientes</h3>
+            <ListGroup as="ol" numbered>
+              {
+                receta.ingredientes.map(ingrediente => {
+                  return <ListGroup.Item as="li">{ingrediente}</ListGroup.Item>
+                })
+              }
+              
+            </ListGroup>
+          </div >
+          <div className='mt-3 mb-5 float-start' style={{ width: '350px' }}>
+            <h3>Preparacion</h3>
+            <Accordion>
+              {
+                receta.preparacion.map(pasoPreparacion => {
+                  return (
+                  <Accordion.Item eventKey={pasoPreparacion.paso}>
+                    <Accordion.Header>Paso {pasoPreparacion.paso}</Accordion.Header>
+                    <Accordion.Body>
+                      {pasoPreparacion.descripcion}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  )
+                })
+              }
+            </Accordion>
+          </div>
         
-
+        </div>
     </div>
+    </>
   )
 }

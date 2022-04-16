@@ -18,6 +18,9 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:1,
+        tipo:"ensalada",
+        dificultad:4,
     },
     {
         id:3,
@@ -38,6 +41,9 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:1,
+        tipo:"ensalada",
+        dificultad:4,
     },
     {
         id:4,
@@ -58,6 +64,9 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:1,
+        tipo:"ensalada",
+        dificultad:4,
     },
     {
         id:2,
@@ -78,6 +87,9 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:1,
+        tipo:"ensalada",
+        dificultad:5,
     },
     {
         id:5,
@@ -98,6 +110,9 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:1,
+        tipo:"ensalada",
+        dificultad:2,
     },
     {
         id:6,
@@ -118,5 +133,8 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
+        usuario:9,
+        tipo:"ensalada",
+        dificultad:3,
     },
 ]
