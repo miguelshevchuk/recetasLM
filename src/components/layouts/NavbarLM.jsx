@@ -1,28 +1,12 @@
-import {React,useState} from 'react'
-import { Container, Navbar, Offcanvas, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import {React} from 'react'
+import { Container, Navbar,  Nav} from 'react-bootstrap'
+import { Link, NavLink } from 'react-router-dom'
+import { Login } from '../login/Login'
 
 export const NavbarLM = ({usrLogged, setUserLogged}) => {
 
-  const logout = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem('tokenRefresh')
-    localStorage.removeItem('nombre')
-    localStorage.removeItem('email')
-    localStorage.removeItem('usuarioId')
-    setUserLogged(false)
-  }
-
-  const login = () => {
-    localStorage.setItem('token', 'sadfasdfasdf')
-    localStorage.setItem('tokenRefresh', 'sadfasdfasdf')
-    localStorage.setItem('nombre', 'Miguel Shevchuk')
-    localStorage.setItem('email', 'shevchuk.miguel@gmail.com')
-    localStorage.setItem('usuarioId', 1)
-    setUserLogged(true)
-  }
-
   return (
+    <>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
     <Container>
     <Navbar.Brand >Recetas LM</Navbar.Brand>
@@ -56,52 +40,21 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
         
         <Link 
           className="text-decoration-none" 
-          to="/ayuda"
+          to="/recetas/me"
         >
           <Nav.Link href="#3">
           Ayuda
           </Nav.Link>
         </Link>
         
-        {
-          (usrLogged) ?(
-          <NavDropdown title={localStorage.getItem("nombre")} id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#4">
-              <Link 
-                className="dropdown-item" 
-                to="/ayuda"
-              >
-                Mis Datos
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#5">
-              <Link 
-                  onClick={logout}
-                  className="dropdown-item" 
-                  to="/"
-              >
-              Logout
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>)
-          :(
-                <Link 
-                onClick={login}
-              className="text-decoration-none" 
-              to="/"
-            >
-              <Nav.Link href="#6">
-              Login
-              </Nav.Link>
-            </Link>
-          )
-        }
+        <Login usrLogged={usrLogged} setUserLogged={setUserLogged}/>
         
         
       </Nav>
     </Navbar.Collapse>
     </Container>
   </Navbar>
+  
+  </>
   )
 }

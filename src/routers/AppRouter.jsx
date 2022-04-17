@@ -9,21 +9,11 @@ import { NavbarLM } from '../components/layouts/NavbarLM';
 import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { MisRecetas } from '../components/recetas/misRecetas/MisRecetas';
 import { Recetas } from '../components/recetas/Recetas';
-import { LoginTokens } from '../domain/model/auth';
 
 
 export const AppRouter = () => {
   
-  const [usrLogged, setUserLogged] = useState(localStorage.getItem("token") != 'undefined');  
-  let login = () => {
-    //localStorage.setItem('token', 'sadfasdfasdf')
-    localStorage.setItem('tokenRefresh', 'sadfasdfasdf')
-    localStorage.setItem('nombre', 'Miguel Shevchuk')
-    localStorage.setItem('email', 'shevchuk.miguel@gmail.com')
-    localStorage.setItem('usuarioId', 1)
-  }
-  
-
+  const [usrLogged, setUserLogged] = useState(localStorage.getItem("token") != null);  
   return (
         <BrowserRouter>
             

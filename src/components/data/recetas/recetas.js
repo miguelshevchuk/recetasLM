@@ -70,7 +70,7 @@ export const recetas = [
     },
     {
         id:2,
-        nombre: "Pollo frito",
+        nombre: "Torta de pollo",
         descripcion:"Un pollo frito para comer en familia",
         ingredientes: [
             "100g de jamon",
@@ -88,7 +88,7 @@ export const recetas = [
         ],
         imagen:"/assets/recetas/receta1.jpg",
         usuario:1,
-        tipo:"ensalada",
+        tipo:"postre",
         dificultad:5,
     },
     {

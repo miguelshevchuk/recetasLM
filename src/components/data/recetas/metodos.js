@@ -1,6 +1,6 @@
 import { recetas } from "./recetas"
 
-export const getRecetaById = (recetaId) => {
+export const getRecetaDataById = (recetaId) => {
     return recetas.find(receta => receta.id == recetaId)
 }
 
@@ -29,7 +29,7 @@ export const getRecetasByFiltros = (filtros) => {
 
     let filtroNombre = (receta) => {
         if(filtros.nombre){
-            return receta.nombre.includes(filtros.nombre)
+            return receta.nombre.toLowerCase().includes(filtros.nombre.toLowerCase())
         }
         return true
     }

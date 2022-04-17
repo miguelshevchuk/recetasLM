@@ -1,8 +1,7 @@
 import React from 'react'
 import { Image, ListGroup, Accordion } from 'react-bootstrap'
-import { Card, Button, Col } from 'react-bootstrap'
 import { useParams, Navigate } from 'react-router-dom'
-import { getRecetaById } from '../../data/recetas/metodos'
+import { getRecetaById } from '../../../domain/service/recetas/RecetasService'
 
 export const DetalleReceta = () => {
 
