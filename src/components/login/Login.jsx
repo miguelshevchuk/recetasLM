@@ -55,7 +55,12 @@ export const Login = ({usrLogged, setUserLogged}) => {
     };
 
     const handleCloseLogin = () => setShow(false);
-    const handleShowLogin = () => setShow(true);
+    const handleShowLogin = () => {
+        setValidated(false);
+        setShowError(false);
+        resetLogin();
+        setShow(true)
+    };
 
   return (
     <>

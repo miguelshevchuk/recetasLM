@@ -14,7 +14,7 @@ export const Recetas = ({usuario}) => {
 
     const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
     
-    let filtros = new FiltrosReceta()
+    const filtros = new FiltrosReceta()
     filtros.usuario = usuario
     filtros.nombre = desc
     filtros.tipo = tipo
@@ -26,8 +26,9 @@ export const Recetas = ({usuario}) => {
     <div className='container'>
         {(!usuario)? <h1>Recetas</h1> : <h1 >Mis Recetas</h1>}
         <div className='mt-4 mb-3'>
-            <FiltroRecetas />
+            <FiltroRecetas /> 
             {(usuario) && 
+                <div>
                 <button className='btn mt-1 p-1 btn-outline-secondary'>
                     Agregar
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-circle m-1" viewBox="0 0 16 16">
@@ -35,6 +36,7 @@ export const Recetas = ({usuario}) => {
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                     </svg>
                 </button>
+                </div>
             }
             
         </div>

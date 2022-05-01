@@ -1,8 +1,9 @@
 import {React, useState} from 'react'
-import { Row, Col, Form, Button,  Offcanvas, FloatingLabel} from 'react-bootstrap'
+import { Row, Col, Form,  Offcanvas, FloatingLabel} from 'react-bootstrap'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import queryString from 'query-string'
+import { Chip } from '../../ui/Chip';
 
 export const FiltroRecetas = () => {
 
@@ -11,7 +12,7 @@ export const FiltroRecetas = () => {
 
   const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
 
-  const [ formValues, handleInputChange ] = useForm({
+  const [ formValues, handleInputChange, reset] = useForm({
     searchText: desc,
     searchTipo: tipo,
     searchDificultad: dif,
@@ -19,9 +20,26 @@ export const FiltroRecetas = () => {
 
   const { searchText, searchTipo, searchDificultad } = formValues;
 
+  const filtrosAplicados = []
+
+  if(desc){
+    filtrosAplicados.push(desc)
+  }
+  if(tipo){
+    filtrosAplicados.push("Tipo: "+tipo)
+  }
+  if(dif){
+    filtrosAplicados.push("Dificultad: "+dif)
+  }
+
+  const limpiar = () => {
+    reset()
+    navigate(``)
+  }
+
   const filtrar = (e) => {
-    handleClose();
     e.preventDefault();
+    handleClose();
     let nText = ''
     if(searchText){
       nText = `?desc=${ searchText }`
@@ -51,6 +69,7 @@ export const FiltroRecetas = () => {
                     type="text"
                     placeholder="Ingrese su busqueda" 
                     name="searchText"
+                    id="searchText"
                     className="form-control"
                     value={ searchText }
                     onChange={ handleInputChange }
@@ -81,9 +100,10 @@ export const FiltroRecetas = () => {
                       <FloatingLabel controlId="floatingSelect" label="Categoria" className="mb-3">
                           <Form.Select aria-label="Seleccione una categoria"
                               name="searchTipo"
+                              id="searchTipo"
                               value={ searchTipo }
                               onChange={ handleInputChange }>
-                                    <option>Seleccione una categoria</option>
+                                    <option value="">Seleccione una categoria</option>
                                     <option value="postre">Postre</option>
                                     <option value="ensalada">Ensalada</option>
                                     <option value="sopa">Sopa</option>
@@ -96,9 +116,10 @@ export const FiltroRecetas = () => {
                       <FloatingLabel controlId="floatingSelect" label="Dificultad" className="mb-3">
                           <Form.Select aria-label="Seleccione una dificultad"
                               name="searchDificultad"
+                              id="searchDificultad"
                               value={ searchDificultad }
                               onChange={ handleInputChange }>
-                                    <option>Seleccione una dificultad</option>
+                                    <option value="">Seleccione una dificultad</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -112,6 +133,15 @@ export const FiltroRecetas = () => {
               </Col>
             </Row>
         </Form>
+        {
+            filtrosAplicados.map( (filtro) => 
+                  <Chip key={filtro}  texto={filtro} />
+            )
+        }
+        {
+          (filtrosAplicados.length >0) && <a className="p-3 link-info" onClick={limpiar}>Limpiar</a>
+        }
+
         
     </>
   )
