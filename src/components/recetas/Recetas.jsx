@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row } from 'react-bootstrap'
 import { recetas } from '../data/recetas/recetas'
-import { CardReceta } from './CardReceta'
+import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 
 export const Recetas = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Style/variablesFijas.scss';
 import {
   BrowserRouter,
   Routes,
