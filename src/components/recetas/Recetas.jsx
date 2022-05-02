@@ -1,11 +1,13 @@
 import React from 'react'
-import { Row } from 'react-bootstrap'
+import { Image, Row } from 'react-bootstrap'
 import { recetas } from '../data/recetas/recetas'
 import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 import queryString from 'query-string'
 import { useForm } from '../../hooks/useForm';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { FiltrosReceta } from '../../domain/model/FiltrosReceta'
+import { getRecetas } from '../../domain/service/recetas/RecetasService'
 
 export const Recetas = ({usuario}) => {
 
