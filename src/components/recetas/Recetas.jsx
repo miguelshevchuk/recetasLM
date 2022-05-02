@@ -1,8 +1,7 @@
 import React from 'react'
-import { Image, Row } from 'react-bootstrap'
-import { FiltrosReceta } from '../../domain/model/FiltrosReceta'
-import { getRecetas } from '../../domain/service/recetas/RecetasService'
-import { CardReceta } from './CardReceta'
+import { Row } from 'react-bootstrap'
+import { recetas } from '../data/recetas/recetas'
+import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 import queryString from 'query-string'
 import { useForm } from '../../hooks/useForm';
