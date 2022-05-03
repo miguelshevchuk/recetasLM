@@ -11,6 +11,7 @@ import { NavbarLM } from '../components/layouts/NavbarLM';
 import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { MisRecetas } from '../components/recetas/misRecetas/MisRecetas';
 import { Recetas } from '../components/recetas/Recetas';
+import { FormReceta } from '../components/recetas/FormReceta';
 
 
 export const AppRouter = () => {
@@ -25,6 +26,8 @@ export const AppRouter = () => {
                 <Route path="/recetas" element={<Recetas />} />
                 <Route path="/" element={<Navigate to="/recetas" />} />
                 <Route path="/recetas/me" element={<MisRecetas />} />
+                <Route path="/receta/carga/:recetaId" element={<FormReceta />} />
+                <Route path="/receta/carga/" element={<FormReceta />} />
             </Routes>
         </BrowserRouter>
   )

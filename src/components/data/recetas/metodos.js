@@ -14,7 +14,7 @@ export const getRecetasByUsuario = (usuario) => {
 export const getRecetasByFiltros = (filtros) => {
     let filtroUsuario = (receta) => {
         if(filtros.usuario){
-            return receta.usuario == filtros.usuario
+            return receta.usuario.id == filtros.usuario
         }
         return true
     }
@@ -35,7 +35,7 @@ export const getRecetasByFiltros = (filtros) => {
 
     let filtroTipo = (receta) => {
         if(filtros.tipo){
-            return receta.tipo === filtros.tipo
+            return receta.categoria.id === filtros.tipo
         }
         return true
     }

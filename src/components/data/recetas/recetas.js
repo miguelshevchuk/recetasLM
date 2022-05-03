@@ -1,7 +1,10 @@
 export const recetas = [
     {
         id:1,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"Yesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
         ingredientes: [
@@ -19,13 +22,19 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:1,
-        tipo:"ensalada",
+        usuario:{
+            id:1,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:4,
     },
     {
         id:3,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"Yesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
         ingredientes: [
@@ -43,13 +52,19 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:1,
-        tipo:"ensalada",
+        usuario:{
+            id:1,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:4,
     },
     {
         id:4,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"UYesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
         ingredientes: [
@@ -67,13 +82,19 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:1,
-        tipo:"ensalada",
+        usuario:{
+            id:1,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:4,
     },
     {
         id:2,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"Yesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
         ingredientes: [
@@ -91,13 +112,19 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:1,
-        tipo:"postre",
+        usuario:{
+            id:1,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:5,
     },
     {
         id:5,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"Un pollo frito para comer en familiaYesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
         ingredientes: [
@@ -115,13 +142,19 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:1,
-        tipo:"ensalada",
+        usuario:{
+            id:1,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:2,
     },
     {
         id:6,
-        categoria:"Sopas y verduras",
+        categoria: {
+            descripcion: "Sopas y verduras",
+            id:1
+        },
         nombre: "Pollo frito",
         descripcion:"Un pollo frito para Yesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook... en familia",
         ingredientes: [
@@ -139,8 +172,11 @@ export const recetas = [
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
-        usuario:9,
-        tipo:"ensalada",
+        usuario:{
+            id:9,
+            nombre:"Pedro Sanchez"
+        },
+        likes:5,
         dificultad:3,
     },
 ]

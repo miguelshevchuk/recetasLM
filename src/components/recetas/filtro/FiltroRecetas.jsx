@@ -3,7 +3,6 @@ import { Row, Col, Form,  Offcanvas, FloatingLabel} from 'react-bootstrap'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import queryString from 'query-string'
-import { Chip } from '../../ui/Chip';
 
 export const FiltroRecetas = () => {
 
@@ -19,23 +18,6 @@ export const FiltroRecetas = () => {
   });
 
   const { searchText, searchTipo, searchDificultad } = formValues;
-
-  const filtrosAplicados = []
-
-  if(desc){
-    filtrosAplicados.push(desc)
-  }
-  if(tipo){
-    filtrosAplicados.push("Tipo: "+tipo)
-  }
-  if(dif){
-    filtrosAplicados.push("Dificultad: "+dif)
-  }
-
-  const limpiar = () => {
-    reset()
-    navigate(``)
-  }
 
   const filtrar = (e) => {
     e.preventDefault();
@@ -104,13 +86,13 @@ export const FiltroRecetas = () => {
                               value={ searchTipo }
                               onChange={ handleInputChange }>
                                     <option value="">Seleccione una categoria</option>
-                                    <option value="postre">Postre</option>
-                                    <option value="ensalada">Ensalada</option>
-                                    <option value="sopa">Sopa</option>
-                                    <option value="guiso">Guiso</option>
-                                    <option value="carne">Carnes</option>
-                                    <option value="pollo">Pollo</option>
-                                    <option value="otros">Otros</option>
+                                    <option value="1">Sopa</option>
+                                    <option value="2">Postre</option>
+                                    <option value="3">Ensalada</option>
+                                    <option value="4">Guiso</option>
+                                    <option value="5">Carnes</option>
+                                    <option value="6">Pollo</option>
+                                    <option value="7">Otros</option>
                           </Form.Select>
                       </FloatingLabel>
                       <FloatingLabel controlId="floatingSelect" label="Dificultad" className="mb-3">
@@ -133,15 +115,6 @@ export const FiltroRecetas = () => {
               </Col>
             </Row>
         </Form>
-        {
-            filtrosAplicados.map( (filtro) => 
-                  <Chip key={filtro}  texto={filtro} />
-            )
-        }
-        {
-          (filtrosAplicados.length >0) && <a className="p-3 link-info" onClick={limpiar}>Limpiar</a>
-        }
-
         
     </>
   )
