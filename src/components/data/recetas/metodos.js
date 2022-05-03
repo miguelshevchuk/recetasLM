@@ -43,3 +43,19 @@ export const getRecetasByFiltros = (filtros) => {
     return recetas.filter(receta => filtroUsuario(receta) && filtroDificultad(receta) 
         && filtroNombre(receta) && filtroTipo(receta))
 }
+
+export const saveOrUpdateReceta = (receta) => {
+    receta.usuario.nombre = localStorage.getItem("nombre")
+    receta.likes=0
+    if(receta.id){
+        //Modificacion pero no puedo con los arrays
+        
+    }else{
+        console.log(Math.max(...recetas.map(r => r.id))+1)
+        receta.id = Math.max(...recetas.map(r => r.id))+1
+        recetas.push(receta)
+        
+    }
+
+    
+}
