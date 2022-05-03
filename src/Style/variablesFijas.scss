@@ -2,6 +2,42 @@
 
 $grisTexto: #525F7F;
 $titleCard: #5E72E4;
+$blanco: #FFFFFF;
+$btn-primaryHover: #4A57A0;
 $subtitle: #F5365C;
-$fontFamiliy: 'Open Sans'
-;
+$background: #F4F5F7;
+$fontFamiliy: 'Open Sans';
+
+.btn-primary {
+    background: $titleCard;
+    box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    font-family: $fontFamiliy;
+
+}
+.btn-primary:hover {
+    background: $btn-primaryHover;
+    box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    font-family: $fontFamiliy;
+
+}
+
+.btn-secondary{
+    background: #FFFFFF;
+    border: 1px solid $titleCard;
+    box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    color: $titleCard;
+    font-family: $fontFamiliy;
+}
+
+.btn-secondary:hover{
+    background: $titleCard;
+    border: 1px solid $titleCard;
+    box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    color: $blanco;
+    font-family: $fontFamiliy;
+
+}

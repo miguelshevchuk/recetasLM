@@ -1,7 +1,7 @@
 import {React} from 'react'
 import { Container, Navbar,  Nav} from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { Login } from '../login/Login'
+import { Login } from '../Login/Login'
 
 export const NavbarLM = ({usrLogged, setUserLogged}) => {
 

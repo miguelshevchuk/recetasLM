@@ -3,6 +3,7 @@ import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
 import { Link, Navigate } from 'react-router-dom'
 import { login, logout } from '../../domain/service/usuario/UsuarioService'
 import { useForm } from '../../hooks/useForm';
+import './LoginStyle.scss'
 
 export const Login = ({usrLogged, setUserLogged}) => {
 
@@ -106,12 +107,12 @@ export const Login = ({usrLogged, setUserLogged}) => {
 
       <Modal show={show} onHide={handleCloseLogin}>
         <Modal.Header closeButton>
-          <Modal.Title>Bienvenido</Modal.Title>
+          <Modal.Title bsPrefix='modal-titleCustom'>Bienvenido a Kitchen Community</Modal.Title>
         </Modal.Header>
         <Form noValidate validated={validated} onSubmit={handleLogin}>
-        <Modal.Body>
+        <Modal.Body bsPrefix='modal-bodyCustom'> 
          
-            <Form.Group className="mb-3" controlId="validationCustom03">
+            <Form.Group className="mb-3" controlId="validationCustom03" >
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
@@ -137,11 +138,11 @@ export const Login = ({usrLogged, setUserLogged}) => {
             Los datos ingresados son Incorrectos
         </div>
         <Modal.Footer>
+        <Button variant="primary" type="submit">
+            Ingresar
+          </Button>
           <Button variant="secondary" onClick={handleCloseLogin}>
             Cancelar
-          </Button>
-          <Button variant="primary" type="submit">
-            Ingresar
           </Button>
         </Modal.Footer>
         </Form>
