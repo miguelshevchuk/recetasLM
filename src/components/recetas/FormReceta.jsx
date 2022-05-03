@@ -128,16 +128,19 @@ export const FormReceta = () => {
                         onChange={ handleInputChange }
                         />
                 </Form.Group>
-
-                <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>Seleccione una imagen de su receta</Form.Label>
-                    <Form.Control type="file" 
-                        name="imagenReceta"
-                        className="form-control"
-                        value={ imagenReceta }
-                        onChange={ handleInputChange }
-                    />
-                </Form.Group>
+                {
+                    (!receta) && 
+                    <Form.Group controlId="formFile" className="mb-3">
+                        <Form.Label>Seleccione una imagen de su receta</Form.Label>
+                        <Form.Control type="file" 
+                            name="imagenReceta"
+                            className="form-control"
+                            value={ imagenReceta }
+                            onChange={ handleInputChange }
+                        />
+                    </Form.Group>
+                }
+                
                 <h3>Ingredientes</h3>
                 <Form.Group className="mb-3" name="ingredientes">
                     <Form.Control id="nuevoIngrediente" placeholder="Ingrese un nuevo Ingrediente" 
