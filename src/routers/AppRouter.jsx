@@ -12,6 +12,7 @@ import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { MisRecetas } from '../components/recetas/misRecetas/MisRecetas';
 import { Recetas } from '../components/recetas/Recetas';
 import { FormReceta } from '../components/recetas/FormReceta';
+import { DatosPersonales } from '../components/DatosPersonales/DatosPersonales';
 
 
 export const AppRouter = () => {
@@ -28,6 +29,7 @@ export const AppRouter = () => {
                 <Route path="/recetas/me" element={<MisRecetas />} />
                 <Route path="/receta/carga/:recetaId" element={<FormReceta />} />
                 <Route path="/receta/carga/" element={<FormReceta />} />
+                <Route path="/usuario" element={<DatosPersonales />} />
             </Routes>
         </BrowserRouter>
   )

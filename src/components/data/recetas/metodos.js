@@ -59,3 +59,7 @@ export const saveOrUpdateReceta = (receta) => {
 
     
 }
+
+export const eliminarReceta = (id) => {
+    
+}

@@ -1,4 +1,4 @@
-import { validarUsuario } from "../../../components/data/usuarios/metodosUsuario"
+import { changePass, getUsuarioBy, validarUsuario } from "../../../components/data/usuarios/metodosUsuario"
 
 export const login = (usuario, pass, setUserLogged) => {
 
@@ -19,4 +19,12 @@ export const logout = (setUserLogged) => {
     localStorage.removeItem('email')
     localStorage.removeItem('usuarioId')
     setUserLogged(false)
+}
+
+export const cambiarPass = (oldPass, newPass) => {
+    changePass(localStorage.getItem("usuarioId"), oldPass, newPass);
+}
+
+export const getUsuarioLogueado = () => {
+    return getUsuarioBy(localStorage.getItem("usuarioId"));
 }

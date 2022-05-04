@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
 import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { login, logout } from '../../domain/service/usuario/UsuarioService'
 import { useForm } from '../../hooks/useForm';
 import './LoginStyle.scss'
@@ -20,12 +20,6 @@ export const Login = ({usrLogged, setUserLogged}) => {
 
     const handleLogout = () => {
         logout(setUserLogged)
-    }
-
-    const handleLogin2 = (e) => {
-        e.preventDefault();
-        login(usuario, pass, setUserLogged)
-        handleCloseLogin()
     }
 
     const handleLogin = (event) => {
@@ -72,7 +66,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
             <NavDropdown.Item href="#4">
               <Link 
                 className="dropdown-item" 
-                to="/ayuda"
+                to="/usuario"
               >
                 Mis Datos
               </Link>
