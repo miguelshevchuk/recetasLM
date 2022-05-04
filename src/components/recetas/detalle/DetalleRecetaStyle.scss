@@ -1,0 +1,16 @@
+@import '../../../Style/variablesFijas.scss';
+
+.title{
+    color: $h1color;
+    font-size: 28px;
+    text-transform:uppercase;
+    font-weight: 300;
+    font-family: $fontFamiliy;
+    display: flex;
+    justify-content: center;
+    border-bottom-width: 50%;
+
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+
+}

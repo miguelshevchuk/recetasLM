@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, ListGroup, Accordion } from 'react-bootstrap'
 import { useParams, Navigate } from 'react-router-dom'
 import { getRecetaById } from '../../../domain/service/recetas/RecetasService'
-
+import './DetalleRecetaStyle.scss'
 export const DetalleReceta = () => {
 
   const {recetaId} = useParams()
@@ -14,8 +14,9 @@ export const DetalleReceta = () => {
 
   return (
  <>
-  <div className='container mt-5 center border float-start float-sm-start' >
-        <h1>{receta.nombre}</h1>
+  <div className='container mt-5 center  float-start float-sm-start' >
+        <h1 className='title'>{receta.nombre}</h1>
+        <h2>{receta.descripcion}</h2>
         <hr className='mb-0'/>
         <div className='float-start float-sm-start mt-3' style={{ width: '370px' }}>
           <Image src={receta.imagen} style={{ width: '350px' }}/>

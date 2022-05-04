@@ -1,28 +1,25 @@
 import {React} from 'react'
-import { Container, Navbar,  Nav} from 'react-bootstrap'
+import { Container, Navbar,  Nav, Image} from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { Login } from '../login/Login'
-
+import { Login } from '../Login/Login'
+import logo from '../Img/Kitchen community.svg'
+import insta from '../Img/Insta.svg';
+import face from '../Img/facebook.svg';
+import youtube from '../Img/youtube.svg';
+import './NavbarLMStyle.scss'
 export const NavbarLM = ({usrLogged, setUserLogged}) => {
 
   return (
     <>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
     <Container>
-    <Navbar.Brand >Recetas LM</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
-      
-        <NavLink 
-            className="text-decoration-none" 
-            to="/recetas"
-        >
-          <Nav.Link href="#1">
-            Inicio
-          </Nav.Link>
-        </NavLink>
-        
+      <a className="redes" href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
+      <a className="redes" href='www.facebook.com'><img src={face} alt="facebook logo" /></a>
+      <a className="redes" href='www.youtube.com'><img src={youtube} alt="youtube logo" /></a>
+    
         {
           (usrLogged) && 
           <NavLink 
@@ -31,7 +28,6 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
           >
             <Nav.Link href="#2">
               Mis recetas
-            
             </Nav.Link>
           </NavLink>
         }
@@ -54,7 +50,15 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
     </Navbar.Collapse>
     </Container>
   </Navbar>
-  
+  <Navbar>
+    <NavLink className="text-decoration-none" to="/recetas" >
+      <div className='logo'>
+        <Image src={logo} fluid />
+      </div>
+    </NavLink>
+  </Navbar>
+
+
   </>
   )
 }

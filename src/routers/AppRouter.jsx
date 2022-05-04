@@ -7,7 +7,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { NavbarLM } from '../components/layouts/NavbarLM';
+import { NavbarLM } from '../components/Navbar/NavbarLM';
 import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { MisRecetas } from '../components/recetas/misRecetas/MisRecetas';
 import { Recetas } from '../components/recetas/Recetas';
