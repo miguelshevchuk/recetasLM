@@ -8,6 +8,8 @@ $btn-primaryHover: #4A57A0;
 $subtitle: #F5365C;
 $background: #F4F5F7;
 $fontFamiliy: 'Open Sans';
+$grisMenu: #757575;
+$hoverMenu: #333333;
 
 .btn-primary {
     background: $titleCard;
@@ -41,4 +43,20 @@ $fontFamiliy: 'Open Sans';
     color: $blanco;
     font-family: $fontFamiliy;
 
+}
+
+.nav{
+    outline: black solid 1px;
+    font-family: $fontFamiliy;
+    .nav-link{
+        color: $grisMenu;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: $fontFamiliy;
+    }
+
+    .nav-link:hover{
+        background-color: $hoverMenu;
+        color: $blanco;
+      }
 }
