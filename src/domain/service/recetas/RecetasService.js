@@ -1,4 +1,4 @@
-import { getRecetasByFiltros, getRecetaDataById, saveOrUpdateReceta, eliminarReceta } from "../../../components/data/recetas/metodos"
+import { getRecetasByFiltros, getRecetaDataById, saveOrUpdateReceta, eliminarReceta, like } from "../../../components/data/recetas/metodos"
 
 export const getRecetas = (filtros) => {
 
@@ -17,4 +17,8 @@ export const saveReceta = (receta) => {
 
 export const deleteReceta = (receta) => {
     return eliminarReceta(receta)
+}
+
+export const likeReceta = (id) => {
+    like(id)
 }

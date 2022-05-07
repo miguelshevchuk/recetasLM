@@ -51,7 +51,6 @@ export const saveOrUpdateReceta = (receta) => {
         //Modificacion pero no puedo con los arrays
         
     }else{
-        console.log(Math.max(...recetas.map(r => r.id))+1)
         receta.id = Math.max(...recetas.map(r => r.id))+1
         recetas.push(receta)
         
@@ -62,4 +61,12 @@ export const saveOrUpdateReceta = (receta) => {
 
 export const eliminarReceta = (id) => {
     
+}
+
+export const like = (id) => {
+    recetas.map(r => {
+        if(r.id == id){
+            r.likes++
+        }
+    })
 }
