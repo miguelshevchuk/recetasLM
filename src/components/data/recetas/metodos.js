@@ -35,7 +35,7 @@ export const getRecetasByFiltros = (filtros) => {
 
     let filtroTipo = (receta) => {
         if(filtros.tipo){
-            return receta.categoria.id === filtros.tipo
+            return receta.categoria.id == filtros.tipo
         }
         return true
     }

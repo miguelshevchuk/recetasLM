@@ -57,31 +57,6 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
       </div>
     </NavLink>
   </Navbar>
-  
-  <Nav className="justify-content-center" bsPrefix='nav' activeKey="/home">
-              <Nav.Item>
-                <Nav.Link href="/home" bsPrefix='nav-link' >TODO</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-1" bsPrefix='nav-link' >DULCE</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-2" bsPrefix='nav-link' >PASTAS</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-3" bsPrefix='nav-link' >SOPAS Y VERDURAS</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-4" bsPrefix='nav-link' >CARNES</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-5" bsPrefix='nav-link' >PESCADO</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-6" bsPrefix='nav-link' >POLLO</Nav.Link>
-            </Nav.Item>
-          </Nav>
-
 
   </>
   )

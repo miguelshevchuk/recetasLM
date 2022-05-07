@@ -3,7 +3,7 @@ export const recetas = [
         id:1,
         categoria: {
             descripcion: "Pollos",
-            id:1
+            id:2
         },
         nombre: "Pollo al verdeo con crema liviana",
         descripcion:"Técnicamente, la crema liviana que acompaña este pollo al verdeo, reduce la intensidad de la siesta que te mandás después del plato. Está científicamente comprobado y así lo enseñan en las escuelas de alta gastronomía.",

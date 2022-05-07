@@ -1,19 +1,32 @@
 import React from 'react'
 import { Image, Row } from 'react-bootstrap'
-import { recetas } from '../data/recetas/recetas'
 import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 import queryString from 'query-string'
-import { useForm } from '../../hooks/useForm';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import {useLocation, Link } from 'react-router-dom';
 import { FiltrosReceta } from '../../domain/model/FiltrosReceta'
 import { getRecetas } from '../../domain/service/recetas/RecetasService'
+import { Categorias } from './Categorias'
+import { useQueryParams } from '../../hooks/useQueryParams';
 
 export const Recetas = ({usuario}) => {
 
     const location = useLocation();
 
     const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
+    const [addParam, deleteParam, navigateParam] = useQueryParams([])
+    addParam({
+        param: "desc",
+        value: desc
+      })
+    addParam({
+        param: "tipo",
+        value: tipo
+      })
+    addParam({
+        param: "dif",
+        value: dif
+      })
     
     const filtros = new FiltrosReceta()
     filtros.usuario = usuario
@@ -23,11 +36,15 @@ export const Recetas = ({usuario}) => {
 
     const recetas = getRecetas(filtros)
 
+
+
   return (
+      <>
+      <Categorias addParam={addParam} navigateParam={navigateParam}/>
     <div className='container'>
         {(!usuario)? <h1>Recetas</h1> : <h1 >Mis Recetas</h1>}
         <div className='mt-4 mb-3'>
-            <FiltroRecetas /> 
+            <FiltroRecetas navigateParam={navigateParam} addParam={addParam} /> 
             {(usuario) && 
                 <div>
                     <Link to='/receta/carga' className='btn mt-1 p-1 btn-outline-secondary'>
@@ -69,5 +86,6 @@ export const Recetas = ({usuario}) => {
         
 
     </div>
+    </>
   )
 }
