@@ -8,12 +8,12 @@ import {
   Navigate
 } from "react-router-dom";
 import { NavbarLM } from '../components/Navbar/NavbarLM';
+import Footer, { MiFooter } from '../components/Footer/footer';
 import { DetalleReceta } from '../components/recetas/detalle/DetalleReceta';
 import { MisRecetas } from '../components/recetas/misRecetas/MisRecetas';
 import { Recetas } from '../components/recetas/Recetas';
 import { FormReceta } from '../components/recetas/FormReceta';
 import { DatosPersonales } from '../components/DatosPersonales/DatosPersonales';
-
 
 export const AppRouter = () => {
   
@@ -31,6 +31,8 @@ export const AppRouter = () => {
                 <Route path="/receta/carga/" element={<FormReceta />} />
                 <Route path="/usuario" element={<DatosPersonales />} />
             </Routes>
+            
+            <MiFooter></MiFooter>
         </BrowserRouter>
   )
 }

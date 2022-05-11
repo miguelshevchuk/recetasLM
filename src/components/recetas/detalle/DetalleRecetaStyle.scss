@@ -31,13 +31,19 @@
     display: flex !important;
 }
 
-.titulo{
-    font-size: 27px;
+.ingrediente{
+    font-size: 1.7em;
     font-weight: bold;
     color: $titleCard;
     font-family: $fontFamiliy;
     padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
+
+.fuentePasos{
+    font-family: $fontFamiliy;
+    padding: 8px;
+} 
 
 .subtitulo{
     color: $subtitle;

@@ -1,0 +1,107 @@
+@import '../../Style/variablesFijas.scss';
+
+$small:425px;
+$medium: 768px;
+
+.myMargin{
+  margin-top: 5%;
+  margin-right: 20%;
+  margin-left:20%;
+
+
+  @media screen and(max-width: $medium) {
+
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  
+  @media screen and(max-width: $small) {
+
+    margin-right:2%;
+    margin-left:2%;
+  }
+
+
+}
+
+
+.followInsta{
+  font-family: $fontFamiliy;
+  color: $h1color;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-bottom: 24px;
+  font-weight: 400;
+}
+
+.copyRight{
+  box-sizing: border-box;
+  color: $grisMenu;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 19.5px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 20px;
+  text-align: center;
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+}
+
+.gallery {
+	display: flex;
+	padding: 2px;
+	transition: .3s;
+	
+	&:hover &__image {
+		filter: grayscale(1);
+	}
+	
+
+	
+	&__link {
+		margin: 2px;
+		overflow: hidden;
+		
+		&:hover {
+			.gallery__image {
+				filter: grayscale(0);
+			}
+			
+			.gallery__caption {
+				opacity: 1;
+			}
+		}
+	}
+	
+	&__thumb {
+		position: relative;
+	}
+	
+	&__image {
+		display: block;
+		width: 100%;
+		transition: .3s;
+		
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	
+	&__caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 25px 15px 15px;
+		width: 100%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 16px;
+		color: white;
+		opacity: 0;
+		background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+		transition: .3s;
+	}
+}
