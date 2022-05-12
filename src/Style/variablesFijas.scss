@@ -45,6 +45,17 @@ $hoverMenu: #333333;
 
 }
 
+.btn-eliminar{
+    background-color:#FB6340;
+    color:$blanco;
+    border-radius: 4px;
+    border-color: #FB6340;
+    width: 26px;
+    height: 34px;
+    align-items: flex-start;
+    padding: 2px;
+}
+
 .nav{
     outline: black solid 1px;
     font-family: $fontFamiliy;
@@ -59,4 +70,22 @@ $hoverMenu: #333333;
         background-color: $hoverMenu;
         color: $blanco;
       }
+}
+
+.ingrediente{
+    font-size: 1.7em;
+    font-weight: bold;
+    color: $titleCard;
+    font-family: $fontFamiliy;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.mih3{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: $titleCard;
+    font-family: $fontFamiliy;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }

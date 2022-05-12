@@ -52,23 +52,55 @@ export const recetas = [
             descripcion: "Sopas y verduras",
             id:1
         },
-        nombre: "Pollo frito",
-        descripcion:"Yesterday, as Facebook launched its news reader app Paper, design-focused startup FiftyThree called out Facebook...",
+        nombre: "Sopa de cebolla",
+        descripcion:"Hoy proponemos la receta tradicional de la sopa de cebolla que preparamos con vino blanco. Algunas personas prefieren usar brandy, jerez o no agregarle ningún ingrediente alcohólico.",
         ingredientes: [
-            "100g de jamon",
-            "Un chorrito de aceite"
+            "4 Cebollas blancas",
+            "250 ml Vino blanco seco",
+            "1l Agua",
+            "50g Manteca",
+            "15ml Aceite de girasol",
+            "10g Harina de trigo",
+            "100g Queso emmental rallado",
+            "1 Pan baguette",
+            "Sal a gusto",
+            "Pimienta negra molida"
         ],
         preparacion:[
             {
                 paso:1,
-                descripcion:"Lava el pollo"
+                descripcion:"Cortamos todas las cebollas en juliana"
             },
             {
                 paso:2,
-                descripcion:"Metetelo en el culo"
+                descripcion:"Calentamos una olla con el aceite vegetal en la que derretimos 30 gramos de mantequilla."
+            },
+            {
+                paso:3,
+                descripcion:"Le agregamos luego las cebollas en juliana y salpimentamos. Cocemos a fuego lento por unos 20 minutos."
+            },
+            {
+                paso:4,
+                descripcion:"Agregamos la harina y removemos."
+            },
+            {
+                paso:5,
+                descripcion:"Dejamos un par de minutos más en la lumbre antes de añadir el vino blanco y el litro de agua sin dejar de revolver. Ajustamos el punto de sal y pimienta al gusto si es necesario.Cocemos a fuego bajo por unos 30 minutos más."
+            },
+            {
+                paso:6,
+                descripcion:"Calentamos una olla con el aceite vegetal en la que derretimos 30 gramos de mantequilla."
+            },
+            {
+                paso:7,
+                descripcion:"Cortamos el pan baguette en rodajas de unos tres o cuatro centímetros de ancho, les untamos mantequilla de ambos lados y las colocamos en el horno a 180ºC por unos 10 minutos. Las volteamos y dejamos otros 10 minutos para que se doren de los dos lados. Si compramos el queso entero lo rallamos finamente."
+            },
+            {
+                paso:8,
+                descripcion:"Para servir la sopa colocamos cada porción en un cuenco para horno, acomodamos el pan tostado y espolvoreamos el queso rallado sobre el pan y la sopa. Ponemos en el horno caliente a 220ºC por unos tres a cinco minutos para que el queso gratine y servimos inmediatamente."
             },
         ],
-        imagen:"/assets/recetas/receta1.jpg",
+        imagen:"/assets/recetas/SopaCebolla.jpeg",
         usuario:{
             id:1,
             nombre:"Pedro Sanchez"
