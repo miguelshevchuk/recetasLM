@@ -42,7 +42,7 @@ export const Recetas = ({usuario}) => {
       <>
       <Categorias addParam={addParam} navigateParam={navigateParam}/>
     <div className='container'>
-        {(!usuario)? <h1>Recetas</h1> : <h1 >Mis Recetas</h1>}
+        {(!usuario)? <h1 className='ingrediente'>Recetas</h1> : <h1 className='ingrediente'>Mis Recetas</h1>}
         <div className='mt-4 mb-3'>
             <FiltroRecetas navigateParam={navigateParam} addParam={addParam} /> 
             {(usuario) && 
@@ -59,7 +59,7 @@ export const Recetas = ({usuario}) => {
             
         </div>
         <div>
-            <Row xs={1} md={3} className="g-4">
+            <Row xs={1}  md ={2} lg={4}>
                 {
                     (recetas.length >0)?
                     recetas.map(receta => {

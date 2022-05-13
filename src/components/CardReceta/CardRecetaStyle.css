@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+.btn-primary {
+  background: #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #333333;
+}
+.btn-primary:hover {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+.btn-primary:active {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+.btn-primary:focus {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  color: #333333;
+  font-family: "Open Sans";
+}
+.btn-secondary:hover {
+  background: #333333;
+  border: 1px solid #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+}
+
+.btn-eliminar {
+  background-color: #FB6340;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border-color: #FB6340;
+  width: 26px;
+  height: 34px;
+  align-items: flex-start;
+  padding: 2px;
+}
+
+.nav {
+  outline: black solid 1px;
+  font-family: "Open Sans";
+}
+.nav .nav-link {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans";
+}
+.nav .nav-link:hover {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+
+.ingrediente {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #333333;
+  font-family: "Open Sans";
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.mih3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333333;
+  font-family: "Open Sans";
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.a {
+  text-decoration: none;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: 400;
+  color: #333333;
+  font-family: "Open Sans";
+}
+
+.subtitulo {
+  color: #F5365C;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Open Sans";
+  line-height: 22px;
+}
+
+.descripcion {
+  color: #525F7F;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.card-flyer {
+  background: #FFFFFF;
+  margin-top: 50px;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+}
+
+.card-flyer:hover {
+  background: #fff;
+  box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in;
+  margin-top: 50px;
+  cursor: pointer;
+}/*# sourceMappingURL=CardRecetaStyle.css.map */

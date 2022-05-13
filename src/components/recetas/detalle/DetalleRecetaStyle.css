@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+.btn-primary {
+  background: #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #333333;
+}
+.btn-primary:hover {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+.btn-primary:active {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+.btn-primary:focus {
+  background: #757575;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  border-color: #757575;
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  color: #333333;
+  font-family: "Open Sans";
+}
+.btn-secondary:hover {
+  background: #333333;
+  border: 1px solid #333333;
+  box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+}
+
+.btn-eliminar {
+  background-color: #FB6340;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border-color: #FB6340;
+  width: 26px;
+  height: 34px;
+  align-items: flex-start;
+  padding: 2px;
+}
+
+.nav {
+  outline: black solid 1px;
+  font-family: "Open Sans";
+}
+.nav .nav-link {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans";
+}
+.nav .nav-link:hover {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+
+.ingrediente {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #333333;
+  font-family: "Open Sans";
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.mih3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333333;
+  font-family: "Open Sans";
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.titleReceta {
+  color: #444;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Source Sans Pro", Helvetica, serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-bottom-width: 50%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.descrip {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  text-align: center;
+}
+
+.alineo {
+  justify-content: center;
+  display: flex !important;
+}
+
+.fuentePasos {
+  font-family: "Open Sans";
+  padding: 8px;
+}
+
+.subtitulo {
+  color: #F5365C;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Open Sans";
+  line-height: 22px;
+}/*# sourceMappingURL=DetalleRecetaStyle.css.map */

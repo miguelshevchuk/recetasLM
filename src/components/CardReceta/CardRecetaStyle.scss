@@ -4,11 +4,22 @@
     text-decoration: none;
 }
 
+
+.card-img{
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  width: 100%;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+}
+
 .titulo{
     font-size: 20px;
     font-weight: 400;
     color: $titleCard;
     font-family: $fontFamiliy;
+    height: 48px;
 }
 
 .subtitulo{
@@ -26,6 +37,12 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 27px;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+            line-clamp: 4; 
+    -webkit-box-orient: vertical;
 }
 
   .card-flyer{

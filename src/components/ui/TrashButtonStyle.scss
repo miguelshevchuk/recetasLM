@@ -1,23 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import '../../Style/variablesFijas.scss';
 
-$grisTexto: #525F7F;
-$titleCard: #333333;
-$h1color: #444;
-$blanco: #FFFFFF;
-$btn-primaryHover: #4A57A0;
-$subtitle: #F5365C;
-$background: #F4F5F7;
-$fontFamiliy: 'Open Sans';
-$grisMenu: #757575;
-$hoverMenu: #333333;
+.btn-group{
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
 
-.btn-primary {
+.btn-editar {
     background: $titleCard;
     box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     font-family: $fontFamiliy;
     border-color: $titleCard;
-
+    min-width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: $blanco;
 
     &:hover{
         background: $grisMenu;
@@ -45,14 +48,16 @@ $hoverMenu: #333333;
 }
 
 
-.btn-secondary{
+.btn-eli{
     background: #FFFFFF;
     border: 1px solid $titleCard;
     box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     color: $titleCard;
     font-family: $fontFamiliy;
-
+    min-width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
 
     &:hover{
         background: $titleCard;
