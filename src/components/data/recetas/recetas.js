@@ -157,7 +157,7 @@ export const recetas = [
             },
             {
                 paso:2,
-                descripcion:"Metetelo en el culo"
+                descripcion:"Metelo al horno"
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
@@ -187,7 +187,7 @@ export const recetas = [
             },
             {
                 paso:2,
-                descripcion:"Metetelo en el culo"
+                descripcion:"Metelo al horno"
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",
@@ -217,7 +217,7 @@ export const recetas = [
             },
             {
                 paso:2,
-                descripcion:"Metetelo en el culo"
+                descripcion:"Metelo al horno"
             },
         ],
         imagen:"/assets/recetas/receta1.jpg",

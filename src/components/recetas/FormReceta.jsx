@@ -227,7 +227,7 @@ export const FormReceta = () => {
                         }
                         </ListGroup>
                     </Col>
-                    <Row className='justify-content-md-center'>
+                    <Row className='justify-content-md-center mt-4'>
                         <Button type="submit">Guardar</Button>
                     </Row>
                 </Row>  
