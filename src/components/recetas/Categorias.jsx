@@ -13,7 +13,7 @@ export const Categorias = ({addParam, navigateParam}) => {
     }
 
   return (
-    <>
+    <div className='d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block'>
         <Nav className="justify-content-center" bsPrefix='nav' activeKey="/home">
               <Nav.Item>
                 <Nav.Link onClick={()=>filtrar("")} bsPrefix='nav-link' >TODO</Nav.Link>
@@ -37,6 +37,6 @@ export const Categorias = ({addParam, navigateParam}) => {
                 <Nav.Link onClick={()=>filtrar(2)} eventKey="link-6" bsPrefix='nav-link' >POLLO</Nav.Link>
             </Nav.Item>
           </Nav>
-    </>
+    </div>
   )
 }

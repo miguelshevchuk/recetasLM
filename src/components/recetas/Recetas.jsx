@@ -8,6 +8,7 @@ import { FiltrosReceta } from '../../domain/model/FiltrosReceta'
 import { getRecetas } from '../../domain/service/recetas/RecetasService'
 import { Categorias } from './Categorias'
 import { useQueryParams } from '../../hooks/useQueryParams';
+import { FiltroResponsive } from './filtro/FiltroResponsive'
 
 export const Recetas = ({usuario}) => {
 
@@ -45,6 +46,8 @@ export const Recetas = ({usuario}) => {
         {(!usuario)? <h1 className='ingrediente'>Recetas</h1> : <h1 className='ingrediente'>Mis Recetas</h1>}
         <div className='mt-4 mb-3'>
             <FiltroRecetas navigateParam={navigateParam} addParam={addParam} /> 
+            <FiltroResponsive  navigateParam={navigateParam} addParam={addParam}  /> 
+            
             {(usuario) && 
                 <div>
                     <Link to='/receta/carga' className='btn mt-1 p-1 btn-outline-secondary'>

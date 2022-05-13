@@ -24,7 +24,7 @@ export const DetalleReceta = () => {
 
         <Row>
           <div className='alineo'>
-             <Image src={receta.imagen} style={{width:'80%', padding:'20px',borderRadius:'24px'}} />
+             <Image src={receta.imagen} style={{width:'40%', padding:'20px',borderRadius:'24px'}} />
           </div> 
         </Row>
         <Row className="justify-content-md-center">
