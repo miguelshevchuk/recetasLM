@@ -1,7 +1,7 @@
 import {React} from 'react'
 import { Container, Navbar,  Nav, Image} from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { Login } from '../Login/Login'
+import { Login} from '../Login/Login'
 import logo from '../Img/Kitchen community.svg'
 import insta from '../Img/Insta.svg';
 import face from '../Img/facebook.svg';

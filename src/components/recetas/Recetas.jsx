@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Row } from 'react-bootstrap'
+import { Image, Row, Col, Container } from 'react-bootstrap'
 import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 import queryString from 'query-string'
@@ -59,7 +59,7 @@ export const Recetas = ({usuario}) => {
             
         </div>
         <div>
-            <Row xs={1}  md ={2} lg={3}>
+        <Row xs={1}  md ={2} lg={3}>
                 {
                     (recetas.length >0)?
                     recetas.map(receta => {
@@ -67,18 +67,21 @@ export const Recetas = ({usuario}) => {
                     }) 
                     : 
                     <>
-                    <div className='text-center text-danger mb-5'>
-                    <div className='mt-5'>
-                        <h5 style={{ width: '50rem' }}>No encontramos recetas que coincidan con tu busqueda.</h5>
-                    </div>   
-                    <div className='ml-5 m-auto'>
-                        <Image src="/assets/heladeraVacia.jpg" style={{ width: '10rem' }}/>
-                    </div>
-                    </div>
+                    <Container>
+                        <Row className="justify-content-md-center">
+                            <Col>
+                                <div className='text-center text-danger mb-5'>
+                                <div className='mt-5'>
+                                    <h5>No encontramos recetas que coincidan con tu busqueda.</h5>
+                                </div>   
+                                <div className='ml-5 m-auto'>
+                                    <Image src="/assets/giphy.gif" style={{ width: '15rem' }}/>
+                                </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
                     </> 
-                        
-                    
-                    
                 }
             </Row>
         </div>
