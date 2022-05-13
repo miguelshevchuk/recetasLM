@@ -1,0 +1,45 @@
+@import '../../../Style/variablesFijas.scss';
+
+.titleReceta{
+    color: $h1color;
+    font-size: 1.5em;
+    text-transform:uppercase;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', Helvetica, serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-bottom-width: 50%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+
+}
+.descrip{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    text-size-adjust: 100%;
+    text-align: center;    
+}
+
+.alineo{
+    justify-content: center;
+    display: flex !important;
+}
+
+
+
+.fuentePasos{
+    font-family: $fontFamiliy;
+    padding: 8px;
+} 
+
+.subtitulo{
+    color: $subtitle;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $fontFamiliy;
+    line-height: 22px;
+}

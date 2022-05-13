@@ -1,0 +1,31 @@
+@import '../../Style/variablesFijas.scss';
+
+.modal-titleCustom{
+
+    font-family: $fontFamiliy;
+    font-weight: 600;
+    color: $titleCard;
+}
+
+.modal-bodyCustom{
+    font-family: $fontFamiliy;
+    padding: 1em;
+    background: $background;
+}    
+
+.form-control{
+    background: $blanco;
+    box-shadow: 0px 1px 3px rgba(50, 50, 93, 0.15), 0px 1px 0px rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+    color: #ADB5BD;
+}
+
+.modal-footer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem;
+    background: $background;
+}
