@@ -1,13 +1,18 @@
 import React from 'react'
 import './TrashButtonStyle.scss'
+import { useNavigate } from 'react-router-dom';
+import { deleteReceta } from '../../domain/service/recetas/RecetasService';
+
 export const TrashButton = ({usuario, recetaId}) => {
 
     const usuarioIdLogueado = localStorage.getItem("usuarioId")
+    const navigate = useNavigate();
+
     const editar = () => {
-        console.log('Editar '+recetaId)
+        navigate(`/receta/carga/${ recetaId }`)
     }
     const eliminar = () => {
-        console.log('Eliminar '+recetaId)
+        deleteReceta(recetaId)
     }
 
   return (

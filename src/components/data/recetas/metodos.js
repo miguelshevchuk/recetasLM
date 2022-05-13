@@ -60,7 +60,7 @@ export const saveOrUpdateReceta = (receta) => {
 }
 
 export const eliminarReceta = (id) => {
-    
+    console.log("Eliminando receta "+id)
 }
 
 export const like = (id) => {
