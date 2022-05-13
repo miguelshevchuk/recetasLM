@@ -28,10 +28,6 @@ export const FiltroResponsive = ({navigateParam, addParam}) => {
         param: "dif",
         value: searchDificultad
       })
-    addParam({
-        param: "tipo",
-        value: searchTipo
-      })
 
       handleClose()
     navigateParam()
@@ -67,22 +63,12 @@ export const FiltroResponsive = ({navigateParam, addParam}) => {
                     <Offcanvas.Title>Filtros</Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
-                    <FloatingLabel controlId="floatingSelect" label="Ingrese su busqueda" className="mb-3">
-                                <Form.Control 
-                                type="text"
-                                placeholder="Ingrese su busqueda" 
-                                name="searchText"
-                                className="form-control"
-                                value={ searchText }
-                                onChange={ handleInputChange }
-                            />
-                      </FloatingLabel>
                       <FloatingLabel controlId="floatingSelect" label="Categoria" className="mb-3">
                           <Form.Select aria-label="Seleccione una categoria"
                               name="searchTipo"
                               value={ searchTipo }
                               onChange={ handleInputChange }>
-                                    <option>Seleccione una categoria</option>
+                                    <option value="">Seleccione una categoria</option>
                                     <option value="3">Dulce</option>
                                     <option value="4">Pastas</option>
                                     <option value="1">Sopas y Verduras</option>
@@ -96,7 +82,7 @@ export const FiltroResponsive = ({navigateParam, addParam}) => {
                               name="searchDificultad"
                               value={ searchDificultad }
                               onChange={ handleInputChange }>
-                                    <option>Seleccione una dificultad</option>
+                                    <option value="">Seleccione una dificultad</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

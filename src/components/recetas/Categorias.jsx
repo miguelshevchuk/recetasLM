@@ -13,7 +13,7 @@ export const Categorias = ({addParam, navigateParam}) => {
     }
 
   return (
-    <div className='d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block'>
+    <div>
         <Nav className="justify-content-center" bsPrefix='nav' activeKey="/home">
               <Nav.Item>
                 <Nav.Link onClick={()=>filtrar("")} bsPrefix='nav-link' >TODO</Nav.Link>
