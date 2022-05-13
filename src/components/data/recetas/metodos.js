@@ -52,6 +52,7 @@ export const saveOrUpdateReceta = (receta) => {
         
     }else{
         receta.id = Math.max(...recetas.map(r => r.id))+1
+        receta.imagen = "/assets/recetas/receta1.jpg"
         recetas.push(receta)
         
     }

@@ -54,7 +54,7 @@ export const DatosPersonales = () => {
 
 
   return (
-    <div className='container'>
+    <div className='container float-start mb-5'>
         <h1>Datos Personales</h1>
         <div className='float-start'>
             <Card style={{ width: '18rem' }} className="card" bsPrefix='card-flyer'>

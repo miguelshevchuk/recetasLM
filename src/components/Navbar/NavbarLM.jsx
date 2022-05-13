@@ -16,21 +16,9 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
-      <a className="redes" href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
-      <a className="redes" href='www.facebook.com'><img src={face} alt="facebook logo" /></a>
-      <a className="redes" href='www.youtube.com'><img src={youtube} alt="youtube logo" /></a>
-    
-        {
-          (usrLogged) && 
-          <NavLink 
-              className="text-decoration-none"
-              to="/recetas/me"
-          >
-            <Nav.Link href="#2">
-              Mis recetas
-            </Nav.Link>
-          </NavLink>
-        }
+      <a className="redes d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block" href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
+      <a className="redes d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block" href='www.facebook.com'><img src={face} alt="facebook logo" /></a>
+      <a className="redes d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block" href='www.youtube.com'><img src={youtube} alt="youtube logo" /></a>
       </Nav>
       <Nav>
         

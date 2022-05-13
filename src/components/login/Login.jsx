@@ -63,6 +63,14 @@ export const Login = ({usrLogged, setUserLogged}) => {
     {
           (usrLogged) ?(
           <NavDropdown title={localStorage.getItem("nombre")} id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#2">
+              <Link 
+                className="dropdown-item" 
+                to="/recetas/me"
+              >
+                Mis Recetas
+              </Link>
+            </NavDropdown.Item>
             <NavDropdown.Item href="#4">
               <Link 
                 className="dropdown-item" 

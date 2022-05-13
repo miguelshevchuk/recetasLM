@@ -59,7 +59,7 @@ export const Recetas = ({usuario}) => {
             
         </div>
         <div>
-            <Row xs={1}  md ={2} lg={4}>
+            <Row xs={1}  md ={2} lg={3}>
                 {
                     (recetas.length >0)?
                     recetas.map(receta => {
