@@ -11,6 +11,11 @@ export const getRecetasByUsuario = (usuario) => {
     return recetas.filter(receta => receta.usuario == usuario)
 }
 
+export const getAllRecetas = () => {
+    
+    return recetas
+}
+
 export const getRecetasByFiltros = (filtros) => {
     let filtroUsuario = (receta) => {
         if(filtros.usuario){

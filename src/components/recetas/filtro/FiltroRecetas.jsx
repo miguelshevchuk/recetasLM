@@ -1,34 +1,22 @@
-import {React, useState} from 'react'
-import { Row, Col, Form,  Offcanvas, FloatingLabel} from 'react-bootstrap'
-import { useLocation } from 'react-router-dom';
+import {React} from 'react'
+import { Row, Col, Form, FloatingLabel} from 'react-bootstrap'
 import { useForm } from '../../../hooks/useForm';
-import queryString from 'query-string'
 
-export const FiltroRecetas = ({navigateParam, addParam}) => {
+export const FiltroRecetas = ({setFDescripcion, setFDificultad}) => {
 
-  const location = useLocation();
-
-  const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
 
   const [ formValues, handleInputChange, reset] = useForm({
-    searchText: desc,
-    searchDificultad: dif,
+    searchText: undefined,
+    searchDificultad: undefined,
   });
 
   const { searchText, searchDificultad } = formValues;
 
   const filtrar = (e) => {
     e.preventDefault();
-    addParam({
-      param: "desc",
-      value: searchText
-    })
-    addParam({
-        param: "dif",
-        value: searchDificultad
-      })
 
-    navigateParam()
+    setFDificultad(searchDificultad)
+    setFDescripcion(searchText)
 
   }
 

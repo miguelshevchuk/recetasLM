@@ -1,52 +1,57 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { Image, Row, Col, Container } from 'react-bootstrap'
 import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
-import queryString from 'query-string'
-import {useLocation, Link } from 'react-router-dom';
-import { FiltrosReceta } from '../../domain/model/FiltrosReceta'
+import { Link } from 'react-router-dom';
 import { getRecetas } from '../../domain/service/recetas/RecetasService'
 import { Categorias } from './Categorias'
-import { useQueryParams } from '../../hooks/useQueryParams';
 import { FiltroResponsive } from './filtro/FiltroResponsive'
 
 export const Recetas = ({usuario}) => {
 
-    const location = useLocation();
+    const [fDescripcion, setFDescripcion] = useState(undefined);
+    const [fTipo, setFTipo] = useState(undefined);
+    const [fDificultad, setFDificultad] = useState(undefined);
 
-    const { desc = '', tipo = '', dif = '' } = queryString.parse(location.search);
-    const [addParam, deleteParam, navigateParam] = useQueryParams([])
-    addParam({
-        param: "desc",
-        value: desc
-      })
-    addParam({
-        param: "tipo",
-        value: tipo
-      })
-    addParam({
-        param: "dif",
-        value: dif
-      })
-    
-    const filtros = new FiltrosReceta()
-    filtros.usuario = usuario
-    filtros.nombre = desc
-    filtros.tipo = tipo
-    filtros.dificultad = dif
+    const filtroDificultad = (receta) => {
+        if(fDificultad){
+            return receta.dificultad == fDificultad
+        }
+        return true
+    }
 
-    const recetas = getRecetas(filtros)
+    const filtroNombre = (receta) => {
+        if(fDescripcion){
+            return receta.nombre.toLowerCase().includes(fDescripcion.toLowerCase())
+        }
+        return true
+    }
 
+    const filtroTipo = (receta) => {
+        if(fTipo){
+            return receta.categoria.id == fTipo
+        }
+        return true
+    }
 
+    let filtroUsuario = (receta) => {
+        if(usuario){
+            return receta.usuario.id == usuario
+        }
+        return true
+    }
+
+    const recetas = getRecetas().filter(receta => filtroUsuario(receta) && filtroDificultad(receta) 
+    && filtroNombre(receta) && filtroTipo(receta))
 
   return (
       <>
-      <Categorias addParam={addParam} navigateParam={navigateParam}/>
+      <Categorias setFTipo={setFTipo}/>
     <div className='container'>
         {(!usuario)? <h1 className='ingrediente'>Recetas</h1> : <h1 className='ingrediente'>Mis Recetas</h1>}
         <div className='mt-4 mb-3'>
-            <FiltroRecetas navigateParam={navigateParam} addParam={addParam} /> 
-            <FiltroResponsive  navigateParam={navigateParam} addParam={addParam}  /> 
+            <FiltroRecetas setFDescripcion={setFDescripcion}  setFDificultad={setFDificultad} /> 
+            <FiltroResponsive  setFDescripcion={setFDescripcion}  setFDificultad={setFDificultad}   /> 
             
             {(usuario) && 
                 <div>

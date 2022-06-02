@@ -1,15 +1,11 @@
 import React from 'react'
 import {Nav} from 'react-bootstrap'
 
-export const Categorias = ({addParam, navigateParam}) => {
+export const Categorias = ({setFTipo}) => {
 
 
     const filtrar = (tipo) => {
-        addParam({
-            param: "tipo",
-            value: tipo
-          })
-        navigateParam()
+      setFTipo(tipo)
     }
 
   return (
