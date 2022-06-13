@@ -1,8 +1,9 @@
 import {React, useState} from 'react'
 import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { login, logout } from '../../domain/service/usuario/UsuarioService'
+import { logout } from '../../domain/service/usuario/UsuarioService'
 import { useForm } from '../../hooks/useForm';
+import { useLoginStore } from '../../hooks/useLoginStore';
 import './LoginStyle.scss'
 
 export const Login = ({usrLogged, setUserLogged}) => {
@@ -15,6 +16,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
     const { usuario, pass} = formLoginValues;
     const [validated, setValidated] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [login] = useLoginStore()
 
     const [show, setShow] = useState(false);
 
