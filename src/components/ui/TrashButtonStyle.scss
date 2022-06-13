@@ -1,15 +1,5 @@
 @import '../../Style/variablesFijas.scss';
 
-.btn-group{
-    position: relative;
-    display: inline-flex;
-    vertical-align: middle;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 10px;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
 
 .btn-editar {
     background: $titleCard;
@@ -114,3 +104,44 @@
     padding-top: 0.5em;
 }
 
+  .icons li {
+    background: none repeat scroll 0 0 black;
+    height: 7px;
+    width: 7px;
+    line-height: 0;
+    list-style: none outside none;
+    margin-right: 15px;
+    margin-top: 3px;
+    vertical-align: top;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+ 
+
+  .myDropdown {
+    position: absolute;
+    display: inline-block;
+    right: 0.4em;
+    top: 0.4em;
+    border-radius: 50px;
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border: #FFFFFF;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+    
+  }
+
+.button{
+    background: none repeat scroll 0 0 black;
+    height: 7px;
+    width: 7px;
+    line-height: 0;
+    list-style: none outside none;
+    margin-right: 15px;
+    margin-top: 3px;
+    vertical-align: top;
+    border-radius: 50%;
+    pointer-events: none;
+}

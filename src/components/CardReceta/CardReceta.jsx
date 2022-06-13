@@ -15,7 +15,9 @@ export const CardReceta = ({id,
 
   return (
       <Col>
+      
         <Card style={{ width: '19rem' }} className="card" bsPrefix='card-flyer'>
+        <TrashButton key={id} usuario={usuario.id} recetaId={id}/>
           <Link to={`/receta/${id}`} className='a'>
             <Card.Img variant="top" src={imagen}/>
             <Card.Body>
@@ -24,8 +26,7 @@ export const CardReceta = ({id,
                 <Card.Text bsPrefix='descripcion'>{descripcion}</Card.Text>
             </Card.Body>
           </Link> 
-          <TrashButton key={id} usuario={usuario.id} recetaId={id}/>
         </Card>
-        </Col>
+      </Col>
   )
 }
