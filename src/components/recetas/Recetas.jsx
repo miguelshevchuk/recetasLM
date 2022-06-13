@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 import { getRecetas } from '../../domain/service/recetas/RecetasService'
 import { Categorias } from './Categorias'
 import { FiltroResponsive } from './filtro/FiltroResponsive'
+import { useRecetasStore } from '../../hooks/useRecetasStore';
 
 export const Recetas = ({usuario}) => {
 
     const [fDescripcion, setFDescripcion] = useState(undefined);
     const [fTipo, setFTipo] = useState(undefined);
     const [fDificultad, setFDificultad] = useState(undefined);
+  //  const [recetas, setRecetas] = useState([]);
+    const [recetasStore, reiniciarRecetas] = useRecetasStore();    
 
     const filtroDificultad = (receta) => {
         if(fDificultad){
@@ -41,8 +44,9 @@ export const Recetas = ({usuario}) => {
         return true
     }
 
-    const recetas = getRecetas().filter(receta => filtroUsuario(receta) && filtroDificultad(receta) 
+    const recetas = recetasStore.filter(receta => filtroUsuario(receta) && filtroDificultad(receta) 
     && filtroNombre(receta) && filtroTipo(receta))
+
 
   return (
       <>

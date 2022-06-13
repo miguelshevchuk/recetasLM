@@ -1,8 +1,8 @@
 import {React, useState} from 'react'
 import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { login, logout } from '../../domain/service/usuario/UsuarioService'
 import { useForm } from '../../hooks/useForm';
+import { useUsuarioStore } from '../../hooks/useUsuarioStore';
 import './LoginStyle.scss'
 
 export const Login = ({usrLogged, setUserLogged}) => {
@@ -15,6 +15,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
     const { usuario, pass} = formLoginValues;
     const [validated, setValidated] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [userLogueado, login, logout] = useUsuarioStore()
 
     const [show, setShow] = useState(false);
 
@@ -22,7 +23,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
         logout(setUserLogged)
     }
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         const form = event.currentTarget;
 
         if (form.checkValidity() === false) {
@@ -34,7 +35,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
             event.stopPropagation();
             event.preventDefault();
             try{
-                login(usuario, pass, setUserLogged)
+                await login(usuario, pass, setUserLogged)
                 resetLogin()
                 handleCloseLogin()
                 setValidated(false);

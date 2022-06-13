@@ -1,13 +1,27 @@
+import recetaApi from "../../../api/RecetaAPI";
 import { getRecetasByFiltros, getRecetaDataById, saveOrUpdateReceta, eliminarReceta, like, getAllRecetas } from "../../../components/data/recetas/metodos"
 
-export const getRecetas = () => {
+export const getRecetas = async () => {
 
-    return getAllRecetas();
-    
+    try {
+        const {data} = await recetaApi.get('/recetas')
+        return data    
+    } catch (error) {
+        console.log(error)
+    }
+
+  
 }
 
-export const getRecetaById = (id) => {
-    return getRecetaDataById(id)
+export const getRecetaById = async (id) => {
+
+    try {
+        const data = await recetaApi.get(`/receta/${id}`)
+        return data.data
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 export const saveReceta = (receta) => {

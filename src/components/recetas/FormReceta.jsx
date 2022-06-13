@@ -5,12 +5,13 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { getRecetaById, saveReceta } from '../../domain/service/recetas/RecetasService';
 import { useForm } from '../../hooks/useForm';
 import { Receta } from '../../domain/model/Receta';
+import { useRecetaStore } from '../../hooks/useRecetaStore';
 
 export const FormReceta = () => {
 
     const navigate = useNavigate();
     const {recetaId} = useParams()
-    const receta = getRecetaById(recetaId)
+    const [receta, recetaExistente, reload, createReceta] = useRecetaStore(recetaId);
 
     const [ formValues, handleInputChange, reset] = useForm({
         nombreReceta: (!receta)?undefined: receta.nombre,
@@ -24,6 +25,7 @@ export const FormReceta = () => {
     const { nombreReceta, categoriaReceta, dificultadReceta, descripcionReceta, imagenReceta } = formValues;
     const [ingredientes, setIngredientes] = useState((receta)?receta.ingredientes:[])
     const [preparacion, setPreparacion] = useState((receta)?receta.preparacion.map(paso=> paso.descripcion): [])
+    const [fileU, setFileU] = useState()
 
     const agregarIngrediente = () => {
         let nuevoIngrediente = document.getElementById("nuevoIngrediente").value
@@ -54,8 +56,8 @@ export const FormReceta = () => {
 
         let nuevaReceta = new Receta()
         nuevaReceta.id = (receta)?receta.id:null
-        nuevaReceta.imagen = (receta)?receta.imagen:imagenReceta
-        nuevaReceta.categoria.id = categoriaReceta
+        nuevaReceta.imagen = (receta)?receta.imagen:fileU
+        nuevaReceta.categoria = categoriaReceta
         nuevaReceta.nombre = nombreReceta
         nuevaReceta.dificultad = dificultadReceta
         nuevaReceta.descripcion = descripcionReceta
@@ -63,13 +65,31 @@ export const FormReceta = () => {
 
         nuevaReceta.preparacion = []
         for(let i=1; i <= preparacion.length; i++){
-            nuevaReceta.preparacion.push({paso: i, descripcion: preparacion[i-1]})
+            nuevaReceta.preparacion.push({pasoNro: i, paso: preparacion[i-1]})
         }
         
-        saveReceta(nuevaReceta)
+        createReceta(nuevaReceta)
 
         navigate(`/recetas/me`)
     }
+
+    const handleFileUpload = (e) => {
+        if (!e.target.files || !e.target.files.length) {
+          return;
+        }
+    
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setFileU(reader.result)
+        };
+        reader.onerror = (error) => {
+          this.setState({
+            fileInputError: "El archivo que seleccionaste no es soportado.",
+          });
+        };
+      };
 
   return (
     <Container>
@@ -140,7 +160,7 @@ export const FormReceta = () => {
                                     name="imagenReceta"
                                     className="form-control"
                                     value={ imagenReceta }
-                                    onChange={ handleInputChange }
+                                    onChange={ handleFileUpload }
                                 />
                             </Form.Group>
                         }

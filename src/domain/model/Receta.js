@@ -14,15 +14,9 @@ export class Receta {
     }
 
     constructor(){
-        this.categoria = new Categoria()
         this.usuario = new Usuario()
     }
 
-}
-
-class Categoria{
-    descripcion;
-    id;
 }
 
 class Usuario{
