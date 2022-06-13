@@ -2,7 +2,11 @@ import React from 'react'
 import { Card, Button, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { TrashButton } from '../ui/TrashButton'
+import ReactStars from 'react-stars'
 import './CardRecetaStyle.scss'
+
+
+const usuarioIdLogueado = localStorage.getItem("usuarioId")
 
 export const CardReceta = ({id,
     nombre,
@@ -11,11 +15,11 @@ export const CardReceta = ({id,
     ingredientes,
     preparacion,
     imagen,
-  usuario}) => {
+    usuario,
+    likes}) => {
 
   return (
       <Col>
-      
         <Card style={{ width: '19rem' }} className="card" bsPrefix='card-flyer'>
         <TrashButton key={id} usuario={usuario.id} recetaId={id}/>
           <Link to={`/receta/${id}`} className='a'>
@@ -26,6 +30,8 @@ export const CardReceta = ({id,
                 <Card.Text bsPrefix='descripcion'>{descripcion}</Card.Text>
             </Card.Body>
           </Link> 
+          <div className='stars'><ReactStars  count={5}  size={24}  color2={'#ffd700'} half={false} value={likes} edit={false}/></div>
+          
         </Card>
       </Col>
   )

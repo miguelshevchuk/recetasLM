@@ -43,7 +43,7 @@ export const recetas = [
             id:1,
             nombre:"Pedro Sanchez"
         },
-        likes:5,
+        likes:3,
         dificultad:4,
     },
     {
@@ -105,7 +105,7 @@ export const recetas = [
             id:1,
             nombre:"Pedro Sanchez"
         },
-        likes:5,
+        likes:1,
         dificultad:4,
     },
     {
@@ -165,7 +165,7 @@ export const recetas = [
             id:1,
             nombre:"Pedro Sanchez"
         },
-        likes:5,
+        likes:3,
         dificultad:5,
     },
     {
@@ -195,7 +195,7 @@ export const recetas = [
             id:1,
             nombre:"Pedro Sanchez"
         },
-        likes:5,
+        likes:2,
         dificultad:2,
     },
     {
@@ -225,7 +225,7 @@ export const recetas = [
             id:9,
             nombre:"Pedro Sanchez"
         },
-        likes:5,
+        likes:2,
         dificultad:3,
     },
 ]

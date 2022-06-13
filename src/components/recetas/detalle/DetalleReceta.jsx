@@ -3,6 +3,12 @@ import { Image, ListGroup, Accordion, Container, Row, Col } from 'react-bootstra
 import { useParams, Navigate } from 'react-router-dom'
 import { getRecetaById } from '../../../domain/service/recetas/RecetasService'
 import './DetalleRecetaStyle.scss'
+import ReactStars from 'react-stars'
+
+const ratingChanged = (newRating) => {
+  console.log(newRating)
+}
+
 export const DetalleReceta = () => {
 
   const {recetaId} = useParams()
@@ -26,6 +32,12 @@ export const DetalleReceta = () => {
           <div className='alineo'>
              <Image src={receta.imagen} style={{width:'40%', padding:'20px',borderRadius:'24px'}} />
           </div> 
+          <div className='alineo'>
+            <h2 className='descrip'>Calificación general</h2>
+          </div>
+          <div className='alineo'>
+            <ReactStars  count={5}  onChange={ratingChanged}  size={24}  color2={'#ffd700'} half={false} value={3} edit={true}/>
+          </div>
         </Row>
         <Row className="justify-content-md-center">
           <Col xs={12}  md ={9} lg={9}>
