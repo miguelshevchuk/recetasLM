@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import recetaApi from "../api/RecetaAPI";
-import { useParams, Navigate } from 'react-router-dom'
 
 export const useRecetaStore = (recetaId) => {
 
@@ -10,8 +9,10 @@ export const useRecetaStore = (recetaId) => {
     const reload = async () => {
         
         try {
-            const {data} = await recetaApi.get(`/receta/${recetaId}`)
-            setReceta(data)
+            if(recetaId){
+                const {data} = await recetaApi.get(`/receta/${recetaId}`)
+                setReceta(data)
+            }
         } catch (error) {
             setRecetaExistente(false)
         }
@@ -21,6 +22,7 @@ export const useRecetaStore = (recetaId) => {
 
     const createReceta = async (receta) => {
         try {
+            console.log(receta)
             await recetaApi.post(`/receta`, receta)
         } catch (error) {
             console.log(error)
