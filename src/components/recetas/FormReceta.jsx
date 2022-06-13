@@ -25,6 +25,7 @@ export const FormReceta = () => {
     const { nombreReceta, categoriaReceta, dificultadReceta, descripcionReceta, imagenReceta } = formValues;
     const [ingredientes, setIngredientes] = useState((receta)?receta.ingredientes:[])
     const [preparacion, setPreparacion] = useState((receta)?receta.preparacion.map(paso=> paso.descripcion): [])
+    const [fileU, setFileU] = useState()
 
     const agregarIngrediente = () => {
         let nuevoIngrediente = document.getElementById("nuevoIngrediente").value
@@ -55,7 +56,7 @@ export const FormReceta = () => {
 
         let nuevaReceta = new Receta()
         nuevaReceta.id = (receta)?receta.id:null
-        nuevaReceta.imagen = (receta)?receta.imagen:imagenReceta
+        nuevaReceta.imagen = (receta)?receta.imagen:fileU
         nuevaReceta.categoria = categoriaReceta
         nuevaReceta.nombre = nombreReceta
         nuevaReceta.dificultad = dificultadReceta
@@ -64,12 +65,12 @@ export const FormReceta = () => {
 
         nuevaReceta.preparacion = []
         for(let i=1; i <= preparacion.length; i++){
-            nuevaReceta.preparacion.push({paso: i, descripcion: preparacion[i-1]})
+            nuevaReceta.preparacion.push({pasoNro: i, paso: preparacion[i-1]})
         }
         
         createReceta(nuevaReceta)
 
-        //navigate(`/recetas/me`)
+        navigate(`/recetas/me`)
     }
 
     const handleFileUpload = (e) => {
@@ -81,8 +82,7 @@ export const FormReceta = () => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-            imagenReceta = reader.result
-            console.log(imagenReceta)
+            setFileU(reader.result)
         };
         reader.onerror = (error) => {
           this.setState({

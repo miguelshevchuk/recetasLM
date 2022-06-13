@@ -22,7 +22,6 @@ export const useRecetaStore = (recetaId) => {
 
     const createReceta = async (receta) => {
         try {
-            console.log(receta)
             await recetaApi.post(`/receta`, receta)
         } catch (error) {
             console.log(error)
