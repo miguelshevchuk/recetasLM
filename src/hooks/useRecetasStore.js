@@ -1,4 +1,3 @@
-import { getRecetaBy, getRecetas } from "../domain/service/recetas/RecetasService"
 import {useState, useEffect} from 'react'
 import recetaApi from "../api/RecetaAPI";
 

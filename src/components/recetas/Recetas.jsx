@@ -3,7 +3,6 @@ import { Image, Row, Col, Container } from 'react-bootstrap'
 import { CardReceta } from '../CardReceta/CardReceta'
 import { FiltroRecetas } from './filtro/FiltroRecetas'
 import { Link } from 'react-router-dom';
-import { getRecetas } from '../../domain/service/recetas/RecetasService'
 import { Categorias } from './Categorias'
 import { FiltroResponsive } from './filtro/FiltroResponsive'
 import { useRecetasStore } from '../../hooks/useRecetasStore';
