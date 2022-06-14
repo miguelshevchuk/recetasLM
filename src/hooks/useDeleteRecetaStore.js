@@ -5,10 +5,9 @@ export const useDeleteRecetaStore = (recetaId) => {
 
     const [receta, setReceta] = useState(recetaId);
 
-    const removeReceta = () => {
+    const removeReceta = async () => {
         try {
-            //await recetaApi.delete(`/receta/${receta}`)
-            throw new Error("Un error")
+            await recetaApi.delete(`/receta/${receta}`)
         } catch (error) {
             throw error
         }
