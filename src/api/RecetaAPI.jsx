@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 const recetaApi = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'https://efs-bck.herokuapp.com'
+    //baseURL: 'http://localhost:3001'
 });
 
 recetaApi.interceptors.request.use( config => {
