@@ -118,13 +118,12 @@ export const FormReceta = () => {
                             value={categoriaReceta}
                             onChange={handleInputChange}>
                                 <option value="">Seleccione una categoria</option>
-                                <option value="1">Sopa</option>
-                                <option value="2">Postre</option>
-                                <option value="3">Ensalada</option>
-                                <option value="4">Guiso</option>
+                                <option value="1">Sopas y Verduras</option>
+                                <option value="3">Dulce</option>
+                                <option value="6">Pescado</option>
+                                <option value="4">Pastas</option>
                                 <option value="5">Carnes</option>
-                                <option value="6">Pollo</option>
-                                <option value="7">Otros</option>
+                                <option value="2">Pollo</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3">
