@@ -1,30 +1,20 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import { Button, Form, ListGroup, Row, Col, Container } from 'react-bootstrap'
-import queryString from 'query-string'
 import { useParams, useNavigate } from 'react-router-dom'
-import { getRecetaById, saveReceta } from '../../domain/service/recetas/RecetasService';
-import { useForm } from '../../hooks/useForm';
 import { Receta } from '../../domain/model/Receta';
-import { useRecetaStore } from '../../hooks/useRecetaStore';
+import { useCreateUpdateRecetaStore } from '../../hooks/useCreateUpdateRecetaStore';
 
 export const FormReceta = () => {
 
     const navigate = useNavigate();
     const {recetaId} = useParams()
-    const [receta, recetaExistente, reload, createReceta] = useRecetaStore(recetaId);
-
-    const [ formValues, handleInputChange, reset] = useForm({
-        nombreReceta: (!receta)?undefined: receta.nombre,
-        categoriaReceta: (!receta)?undefined: receta.categoria.id,
-        dificultadReceta: (!receta)?undefined: receta.dificultad,
-        descripcionReceta: (!receta)?undefined: receta.descripcion,
-        imagenReceta:undefined
-      });
-    
+    //const [receta, recetaExistente, reload, createReceta] = useRecetaStore(recetaId);
+    const [ingredientes, setIngredientes] = useState()
+    const [preparacion, setPreparacion] = useState()
+    const [receta, createOrReplaceReceta, formValues, handleInputChange, reload] = useCreateUpdateRecetaStore(recetaId, setIngredientes, setPreparacion);
+   
     
     const { nombreReceta, categoriaReceta, dificultadReceta, descripcionReceta, imagenReceta } = formValues;
-    const [ingredientes, setIngredientes] = useState((receta)?receta.ingredientes:[])
-    const [preparacion, setPreparacion] = useState((receta)?receta.preparacion.map(paso=> paso.descripcion): [])
     const [fileU, setFileU] = useState()
 
     const agregarIngrediente = () => {
@@ -51,7 +41,7 @@ export const FormReceta = () => {
         setPreparacion(preparacion.filter(paso => paso != pasoE))
     }
 
-    const guardarReceta = (e) => {
+    const guardarReceta = async (e) => {
         e.preventDefault();
 
         let nuevaReceta = new Receta()
@@ -68,7 +58,7 @@ export const FormReceta = () => {
             nuevaReceta.preparacion.push({pasoNro: i, paso: preparacion[i-1]})
         }
         
-        createReceta(nuevaReceta)
+        await createOrReplaceReceta(nuevaReceta)
 
         navigate(`/recetas/me`)
     }
@@ -186,7 +176,7 @@ export const FormReceta = () => {
                         </Form.Group>
                         <ListGroup>
                         {
-                            ingredientes.map(ingrediente =>  
+                            ingredientes?.map(ingrediente =>  
                                 <ListGroup.Item key={ingrediente}>
                                     <Row>
                                         <Col xs={11}  md ={11} lg={11}>
@@ -227,7 +217,7 @@ export const FormReceta = () => {
                         </Form.Group>
                         <ListGroup>
                         {
-                            preparacion.map(paso =>  
+                            preparacion?.map(paso =>  
                                 <ListGroup.Item key={paso}>
                                     <Row>
                                         <Col xs={11}  md ={11} lg={11}>

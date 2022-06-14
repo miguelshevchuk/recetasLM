@@ -1,19 +1,22 @@
 import React from 'react'
 import './TrashButtonStyle.scss'
 import { useNavigate } from 'react-router-dom';
-import { deleteReceta } from '../../domain/service/recetas/RecetasService';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { useDeleteRecetaStore } from '../../hooks/useDeleteRecetaStore';
 
 export const TrashButton = ({usuario, recetaId}) => {
 
     const usuarioIdLogueado = localStorage.getItem("usuarioId")
     const navigate = useNavigate();
 
+    const [receta, removeReceta] = useDeleteRecetaStore(recetaId);
+
     const editar = () => {
-        navigate(`/receta/carga/${ recetaId }`)
+        navigate(`/receta/carga/${ receta }`)
     }
-    const eliminar = () => {
-        deleteReceta(recetaId)
+    const eliminar = async () => {
+        await removeReceta()
+        navigate(`/recetas`)
     }
 
      

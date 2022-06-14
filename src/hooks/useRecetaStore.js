@@ -20,24 +20,25 @@ export const useRecetaStore = (recetaId) => {
         
     }
 
-    const createReceta = async (receta) => {
+    const createOrReplaceReceta = async (receta) => {
         try {
-            await recetaApi.post(`/receta`, receta)
+            if(receta.id){
+                await recetaApi.put(`/receta`, receta)
+            }else{
+                await recetaApi.post(`/receta`, receta)
+            }
+            
         } catch (error) {
             console.log(error)
         }
     }
 
-    const removeReceta = () => {
-        
-    }
-
-    const updateReceta = () => {
-        
-    }
-
-    const calificarReceta = () => {
-        
+    const calificarReceta = async (recetaId, calificacion) => {
+        try {
+            await recetaApi.post(`/calificacion`, {recetaId: recetaId, calificacion: calificacion})
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect( () => {
@@ -48,9 +49,6 @@ export const useRecetaStore = (recetaId) => {
         receta,
         recetaExistente,
         reload,
-        createReceta,
-        removeReceta,
-        updateReceta,
         calificarReceta
     ]
 

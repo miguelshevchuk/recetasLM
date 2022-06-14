@@ -47,6 +47,14 @@ export const useUsuarioStore = () => {
         }
     }
 
+    const registrarUsuario = async (email, password, nombreYApellido) => {
+        try {
+            await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect( () => {
         getUsuarioLogueado();
     }, []);
@@ -54,7 +62,8 @@ export const useUsuarioStore = () => {
     return [
         userLogueado,
         login,
-        logout
+        logout,
+        registrarUsuario
     ]
 
 }
