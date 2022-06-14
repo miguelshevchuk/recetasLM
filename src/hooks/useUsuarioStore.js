@@ -21,8 +21,8 @@ export const useUsuarioStore = () => {
             setUserLogged(true)
             setUserLogueado(data.usuario)
         } catch (error) {
-            console.log(error)
             setUserLogged(false)
+            throw error
         }
         
         
@@ -51,7 +51,15 @@ export const useUsuarioStore = () => {
         try {
             await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido})
         } catch (error) {
-            console.log(error)
+            throw error
+        }
+    }
+
+    const changePass = async (oldPassword, newPassword) => {
+        try {
+            await recetaApi.put(`/usuario/password`, {newPassword: newPassword, oldPassword: oldPassword})
+        } catch (error) {
+            throw error
         }
     }
 
@@ -63,7 +71,8 @@ export const useUsuarioStore = () => {
         userLogueado,
         login,
         logout,
-        registrarUsuario
+        registrarUsuario,
+        changePass
     ]
 
 }

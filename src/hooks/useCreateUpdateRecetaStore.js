@@ -46,7 +46,7 @@ export const useCreateUpdateRecetaStore = (recetaId, setIngredientes, setPrepara
             }
             
         } catch (error) {
-            console.log(error)
+            throw error
         }
     }
 

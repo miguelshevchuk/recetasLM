@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import { Button, Form, ListGroup, Row, Col, Container } from 'react-bootstrap'
+import { Button, Form, ListGroup, Row, Col, Container, Alert } from 'react-bootstrap'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Receta } from '../../domain/model/Receta';
 import { useCreateUpdateRecetaStore } from '../../hooks/useCreateUpdateRecetaStore';
@@ -9,8 +9,10 @@ export const FormReceta = () => {
     const navigate = useNavigate();
     const {recetaId} = useParams()
     //const [receta, recetaExistente, reload, createReceta] = useRecetaStore(recetaId);
-    const [ingredientes, setIngredientes] = useState()
-    const [preparacion, setPreparacion] = useState()
+    const [ingredientes, setIngredientes] = useState([])
+    const [preparacion, setPreparacion] = useState([])
+    const [showError, setShowError] = useState(false)
+    const [textoError, setTextoError] = useState()
     const [receta, createOrReplaceReceta, formValues, handleInputChange, reload] = useCreateUpdateRecetaStore(recetaId, setIngredientes, setPreparacion);
    
     
@@ -58,9 +60,14 @@ export const FormReceta = () => {
             nuevaReceta.preparacion.push({pasoNro: i, paso: preparacion[i-1]})
         }
         
-        await createOrReplaceReceta(nuevaReceta)
-
-        navigate(`/recetas/me`)
+        try {
+            await createOrReplaceReceta(nuevaReceta)
+            navigate(`/recetas/me`)
+        } catch (error) {
+            setTextoError(error.response.data)
+            setShowError(true)
+        }
+        
     }
 
     const handleFileUpload = (e) => {
@@ -83,6 +90,12 @@ export const FormReceta = () => {
 
   return (
     <Container>
+        <Alert show={showError} variant='danger' onClose={() => setShowError(false)} dismissible>
+            <Alert.Heading>Ocurrio un error al procesar la peticion</Alert.Heading>
+            <p>
+                {textoError}
+            </p>
+        </Alert>
         <h1 className='ingrediente'>{(receta)? "Modificar Receta" : "Nueva receta" }</h1>
             <Form onSubmit={guardarReceta}>
                 <Row className="justify-content-md-center">

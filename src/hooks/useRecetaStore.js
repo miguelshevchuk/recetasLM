@@ -20,24 +20,11 @@ export const useRecetaStore = (recetaId) => {
         
     }
 
-    const createOrReplaceReceta = async (receta) => {
-        try {
-            if(receta.id){
-                await recetaApi.put(`/receta`, receta)
-            }else{
-                await recetaApi.post(`/receta`, receta)
-            }
-            
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     const calificarReceta = async (recetaId, calificacion) => {
         try {
             await recetaApi.post(`/calificacion`, {recetaId: recetaId, calificacion: calificacion})
         } catch (error) {
-            console.log(error)
+            throw error
         }
     }
 

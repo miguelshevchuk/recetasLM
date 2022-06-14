@@ -1,7 +1,7 @@
-import React from 'react'
+import {React, useState} from 'react'
 import './TrashButtonStyle.scss'
 import { useNavigate } from 'react-router-dom';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Alert, Dropdown, DropdownButton } from 'react-bootstrap';
 import { useDeleteRecetaStore } from '../../hooks/useDeleteRecetaStore';
 
 export const TrashButton = ({usuario, recetaId}) => {
@@ -10,13 +10,19 @@ export const TrashButton = ({usuario, recetaId}) => {
     const navigate = useNavigate();
 
     const [receta, removeReceta] = useDeleteRecetaStore(recetaId);
+    
 
     const editar = () => {
         navigate(`/receta/carga/${ receta }`)
     }
-    const eliminar = async () => {
-        await removeReceta()
-        navigate(`/recetas`)
+    const eliminar =  async () => {
+        try {
+            await removeReceta()
+            navigate(`/recetas`)
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
      
@@ -31,9 +37,7 @@ export const TrashButton = ({usuario, recetaId}) => {
             <Dropdown.Item onClick={eliminar}>Eliminar </Dropdown.Item>
         </DropdownButton>
         </div>
-    }
-    
-    
+    }   
     </>
   )
 }

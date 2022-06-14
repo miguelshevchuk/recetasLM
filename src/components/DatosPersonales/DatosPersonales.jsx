@@ -1,13 +1,13 @@
 import {React, useState} from 'react'
-import { Navigate } from 'react-router-dom'
-import { cambiarPass, getUsuarioLogueado } from '../../domain/service/usuario/UsuarioService'
 import { Card, Button, Form } from 'react-bootstrap'
 import { useForm } from '../../hooks/useForm';
+import { useUsuarioStore } from '../../hooks/useUsuarioStore';
 
 export const DatosPersonales = () => {
 
     
-    const usuario = getUsuarioLogueado()
+    //const usuario = getUsuarioLogueado()
+    const [usuario, login, logout, registro, cambiarPass] = useUsuarioStore()
 
     const [ formValues, handleInputChange, reset] = useForm({
         oldPass: undefined,
@@ -20,7 +20,7 @@ export const DatosPersonales = () => {
 
     const { oldPass, newPass, repeatNewPass} = formValues;
 
-    const changePass = (event) => {
+    const changePass = async (event) => {
         setShowOk(false)
         const form = event.currentTarget;
 
@@ -34,7 +34,7 @@ export const DatosPersonales = () => {
             event.preventDefault();
             try{
                 validarPass()
-                cambiarPass(oldPass, newPass)
+                await cambiarPass(oldPass, newPass)
                 setValidated(false);
                 setShowError(false)
                 reset()
@@ -60,8 +60,8 @@ export const DatosPersonales = () => {
             <Card style={{ width: '18rem' }} className="card" bsPrefix='card-flyer'>
                 <Card.Img variant="top" src="/assets/usuario.png"/>
                 <Card.Body>
-                    <Card.Title bsPrefix='titulo'>{usuario.nombre}</Card.Title> 
-                    <Card.Subtitle bsPrefix='subtitulo'>{usuario.email}</Card.Subtitle>
+                    <Card.Title bsPrefix='titulo'>{usuario?.nombre}</Card.Title> 
+                    <Card.Subtitle bsPrefix='subtitulo'>{usuario?.email}</Card.Subtitle>
                 </Card.Body>
             </Card>
         </div>
