@@ -21,7 +21,6 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
       <a className="redes d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block" href='www.youtube.com'><img src={youtube} alt="youtube logo" /></a>
       </Nav>
       <Nav>
-        
         <Link 
           className="text-decoration-none" 
           to="/recetas/me"

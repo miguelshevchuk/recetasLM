@@ -3,14 +3,13 @@ import { Image, ListGroup, Accordion, Container, Row, Col } from 'react-bootstra
 import { useParams, Navigate } from 'react-router-dom'
 import { useRecetaStore } from '../../../hooks/useRecetaStore'
 import './DetalleRecetaStyle.scss'
-<<<<<<< HEAD
+
 import ReactStars from 'react-stars'
 
 const ratingChanged = (newRating) => {
   console.log(newRating)
 }
-=======
->>>>>>> d7a0f9a2041d74d6a9fa2e12cbc332906f327fde
+
 
 export const DetalleReceta = () => {
 
