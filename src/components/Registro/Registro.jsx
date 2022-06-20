@@ -7,27 +7,25 @@ import './RegistroStyle.scss'
 
 export const Registro = ({showreg,handleShowReg}) => {
     
-    const [formRegistrationValues,handleInputRegistrationChange ] = useForm({
-        nombre: "",
-        apellido: "",
+    const [formRegistrationValues,handleInputRegistrationChange,resetRegistro ] = useForm({
+        nombreYApellido: "",
         email:"",
         telefono:"",
-        contrasenia:""
+        password:""
     });
-       
-    const {nombre, apellido, email, telefono, contrasenia} = formRegistrationValues;
+    const [userLogueado, login, logout, registrarUsuario] = useUsuarioStore()
+    const {nombreYApellido, email, telefono, password} = formRegistrationValues;
 
     const [validated, setValidated] = useState(false);
     const [showError, setShowError] = useState(false);
-    const [registro, setRegistro] = useState(false); 
 
-
+    
 
 
   /* PEDIR QUE MIGUE ME EXPLIQUE UN POCO QUE HIZO EN ESTA PARTE, entiendo que usa el hook */
     const handleRegistration = async (event) => {
-/*       const form = event.currentTarget;
-
+      const form = event.currentTarget;
+      console.log(form.checkValidity())
       if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
@@ -37,15 +35,16 @@ export const Registro = ({showreg,handleShowReg}) => {
           event.stopPropagation();
           event.preventDefault();
           try{
-              await login(usuario, pass, setUserLogged)
-              resetLogin()
-              handleCloseLogin()
-              setValidated(false);
-              setShowError(false)
+            await registrarUsuario(email, password, nombreYApellido, telefono)
+            resetRegistro()
+            handleShowReg(false)
+            setValidated(false);
+            setShowError(false)
           }catch(e){
               setShowError(true)
+              console.log(e)
           }
-      } */
+      }
   };
 
   return (
@@ -58,19 +57,10 @@ export const Registro = ({showreg,handleShowReg}) => {
         <Modal.Body bsPrefix='modal-bodyCustom'> 
          
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control placeholder="Ingrese su Nombre" 
-                name="nombre"
-                value={ nombre }
-                onChange={ handleInputRegistrationChange }
-                />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Apellido</Form.Label>
-                <Form.Control placeholder="Ingrese su Nombre" 
-                name="apellido"
-                value={ apellido }
+                <Form.Label>Nombre y apellido</Form.Label>
+                <Form.Control placeholder="Ingrese su Nombre y apellido" 
+                name="nombreYApellido"
+                value={ nombreYApellido }
                 onChange={ handleInputRegistrationChange }
                 />
             </Form.Group>
@@ -101,8 +91,8 @@ export const Registro = ({showreg,handleShowReg}) => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control type="password" placeholder="Ingrese su Contraseña" 
-                name="contrasenia"
-                value={ contrasenia }
+                name="password"
+                value={ password }
                 onChange={ handleInputRegistrationChange }
                 />
                 <Form.Control.Feedback type="invalid">Por favor, ingresa una Contraseña valida</Form.Control.Feedback>
@@ -110,7 +100,7 @@ export const Registro = ({showreg,handleShowReg}) => {
           
         </Modal.Body>
         <div className={ 'text-danger text-align-center p-2 ' + ((showError) ? 'd-block' : 'd-none')}>
-            Los datos ingresados son Incorrectos
+            Ya se encuentra una cuenta registrada con este correo
         </div>
         <Modal.Footer>
         <Button variant="primary" type="submit">

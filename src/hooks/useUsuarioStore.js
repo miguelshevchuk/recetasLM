@@ -47,9 +47,9 @@ export const useUsuarioStore = () => {
         }
     }
 
-    const registrarUsuario = async (email, password, nombreYApellido) => {
+    const registrarUsuario = async (email, password, nombreYApellido, telefono) => {
         try {
-            await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido})
+            await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido, telefono: telefono})
         } catch (error) {
             throw error
         }
