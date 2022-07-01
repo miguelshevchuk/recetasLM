@@ -3,6 +3,7 @@ import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm';
 import { useUsuarioStore } from '../../hooks/useUsuarioStore';
+import {toast} from 'react-toastify';
 import './RegistroStyle.scss'
 
 export const Registro = ({showreg,handleShowReg}) => {
@@ -38,6 +39,7 @@ export const Registro = ({showreg,handleShowReg}) => {
             await registrarUsuario(email, password, nombreYApellido, telefono)
             resetRegistro()
             handleShowReg(false)
+            toast.success("Usuario registrado")
             setValidated(false);
             setShowError(false)
           }catch(e){
@@ -103,7 +105,7 @@ export const Registro = ({showreg,handleShowReg}) => {
             Ya se encuentra una cuenta registrada con este correo
         </div>
         <Modal.Footer>
-        <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit">
             Registrarse
           </Button>
           <Button variant="secondary" onClick={handleShowReg}>

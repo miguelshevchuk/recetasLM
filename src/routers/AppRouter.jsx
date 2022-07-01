@@ -1,5 +1,5 @@
-import {React, useState} from 'react'
-import '../Style/variablesFijas.scss';
+import {React, useState, useEffect} from 'react'
+import { toast, ToastContainer } from 'react-toastify';
 import {
   BrowserRouter,
   Routes,
@@ -14,18 +14,22 @@ import { Recetas } from '../components/recetas/Recetas';
 import { FormReceta } from '../components/recetas/FormReceta';
 import { DatosPersonales } from '../components/DatosPersonales/DatosPersonales';
 import { Registro } from '../components/Registro/Registro';
-
+import '../Style/variablesFijas.scss';
+import 'react-toastify/dist/ReactToastify.css'
 
 export const AppRouter = () => {
   
   const [usrLogged, setUserLogged] = useState(localStorage.getItem("token") != null);  
-
+/*   useEffect(()=>{
+    toast("fdfdf")
+  }) */
   return (
         <BrowserRouter>
             
             <NavbarLM usrLogged={usrLogged} setUserLogged={setUserLogged} />
+            <ToastContainer position='top-center'/>
             <Routes>
-                <Route path="/receta/:recetaId" element={<DetalleReceta />} />
+                <Route path="/receta/:recetaId" element={<DetalleReceta usrLogged={usrLogged}/>} />
                 <Route path="/recetas" element={<Recetas />} />
                 <Route path="/" element={<Navigate to="/recetas" />} />
                 <Route path="/recetas/me" element={<MisRecetas />} />

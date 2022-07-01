@@ -16,7 +16,7 @@ export const CardReceta = ({id,
     preparacion,
     imagen,
     usuario,
-    likes}) => {
+    calificacionPromedio}) => {
 
   return (
       <Col>
@@ -30,7 +30,7 @@ export const CardReceta = ({id,
                 <Card.Text bsPrefix='descripcion'>{descripcion}</Card.Text>
             </Card.Body>
           </Link> 
-          <div className='stars'><ReactStars  count={5}  size={24}  color2={'#ffd700'} half={false} value={likes} edit={false}/></div>
+          <div className='stars'><ReactStars  count={5}  size={24}  color2={'#ffd700'} half={true} value={calificacionPromedio} edit={false}/></div>
           
         </Card>
       </Col>
