@@ -52,7 +52,7 @@ export const DetalleReceta = ({usrLogged}) => {
             <h2 className='descrip'>Calificación general</h2>
           </div>
           <div className='alineo'>
-            <ReactStars  count={5}  onChange={ratingChanged}  size={24}  color2={'#ffd700'} half={true} value={receta?.calificacionPromedio} edit={
+            <ReactStars  count={5}  onChange={ratingChanged}  size={24}  color2={'#ffd700'} half={false} value={receta?.calificacionPromedio} edit={
               (usrLogged)?(true):(false)
               }/>
           </div>
