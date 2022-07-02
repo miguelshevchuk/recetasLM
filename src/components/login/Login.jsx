@@ -12,8 +12,6 @@ export const Login = ({usrLogged, setUserLogged}) => {
         usuario: "",
         pass: ""
       });
-    
-    
     const { usuario, pass} = formLoginValues;
     const [validated, setValidated] = useState(false);
     const [showError, setShowError] = useState(false);

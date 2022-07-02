@@ -1,11 +1,11 @@
-import {React, useEffect} from 'react'
+import {React, useState} from 'react'
 import { Image, ListGroup, Accordion, Container, Row, Col } from 'react-bootstrap'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, Navigate,Routes, Route, useNavigate } from 'react-router-dom'
 import { useRecetaStore } from '../../../hooks/useRecetaStore'
 import {toast} from 'react-toastify';
 import './DetalleRecetaStyle.scss'
 import ReactStars from 'react-stars'
-
+import { Categorias } from '../Categorias'
 
 
 
@@ -13,9 +13,15 @@ import ReactStars from 'react-stars'
 
 export const DetalleReceta = ({usrLogged}) => {
 
-  
   const {recetaId} = useParams()
   const [receta, recetaExistente, reload, calificarReceta] = useRecetaStore(recetaId);
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    // 👇️ navigate to /
+    navigate('/');
+  };
+  
 
   if(!recetaExistente){
     return <Navigate to = "/"/>
@@ -34,8 +40,13 @@ export const DetalleReceta = ({usrLogged}) => {
     calificarReceta (recetaId,newRating)
     console.log(recetaId, newRating)
   }
+
+
+/*   const recetas = receta.filter(receta => filtroTipo(receta)) */
+
   return (
  <>
+ <Categorias setFTipo={navigateHome}/>
  <Container>
    <Row className="justify-content-md-center">
 {/*   <div className='container mt-5 center  float-start float-sm-start' >
