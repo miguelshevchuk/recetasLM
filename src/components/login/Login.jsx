@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm';
 import { useUsuarioStore } from '../../hooks/useUsuarioStore';
 import { Registro} from '../Registro/Registro'
+import { ForgotPass } from './ForgotPass';
 import './LoginStyle.scss'
 
 export const Login = ({usrLogged, setUserLogged}) => {
@@ -18,11 +19,17 @@ export const Login = ({usrLogged, setUserLogged}) => {
     const [userLogueado, login, logout] = useUsuarioStore()
 
     const [showreg, setShowReg] = useState(false);
-    const [show, setShow] = useState(false);
-
+    
     const handleShowReg = ()  => {
       setShowReg(!showreg)
     }
+    const [showforgot, setShowForgot] = useState(false);
+    
+    const handleShowForogot = ()  => {
+      setShowForgot(!showforgot)
+    }   
+    const [show, setShow] = useState(false);
+
 
     const handleLogout = () => {
         logout(setUserLogged)
@@ -138,6 +145,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
                 onChange={ handleInputLoginChange }/>
                 <Form.Control.Feedback type="invalid">Por favor, ingresa una Contraseña valida</Form.Control.Feedback>
             </Form.Group>
+            <Button variant="link" bsPrefix='btn_forgotpass' onClick={handleShowForogot}>¿Olvido su contraseña?</Button>
           
         </Modal.Body>
         <div className={ 'text-danger text-align-center p-2 ' + ((showError) ? 'd-block' : 'd-none')}>
@@ -154,6 +162,7 @@ export const Login = ({usrLogged, setUserLogged}) => {
         </Form>
       </Modal>      
       <Registro handleShowReg={handleShowReg} showreg={showreg}/>
+      <ForgotPass handleShowForogot={handleShowForogot} handleCloseLogin={handleCloseLogin} showforgotpass={showforgot}/>
     </>
   )
 }

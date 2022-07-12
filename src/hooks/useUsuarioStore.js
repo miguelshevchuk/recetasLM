@@ -47,9 +47,10 @@ export const useUsuarioStore = () => {
         }
     }
 
-    const registrarUsuario = async (email, password, nombreYApellido, telefono) => {
+
+    const registrarUsuario = async (email, password, nombreYApellido, telefono, preguntaSecreta, respuestaSecreta) => {
         try {
-            await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido, telefono: telefono})
+            await recetaApi.post(`/usuario`, {email: email, password: password, nombreApellido: nombreYApellido, telefono: telefono, preguntaSecreta: preguntaSecreta, respuestaSecreta: respuestaSecreta})
         } catch (error) {
             throw error
         }
@@ -63,6 +64,15 @@ export const useUsuarioStore = () => {
         }
     }
 
+    const getPreguntaSecreta = async (email) => {
+        try {
+            const {data} = await recetaApi.post(`/usuario/pregunta`,{email: email})
+            return data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect( () => {
         getUsuarioLogueado();
     }, []);
@@ -72,7 +82,8 @@ export const useUsuarioStore = () => {
         login,
         logout,
         registrarUsuario,
-        changePass
+        changePass,
+        getPreguntaSecreta
     ]
 
 }

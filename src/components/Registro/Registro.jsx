@@ -1,6 +1,5 @@
 import {React, useState} from 'react'
-import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Modal, Form, Button} from 'react-bootstrap'
 import { useForm } from '../../hooks/useForm';
 import { useUsuarioStore } from '../../hooks/useUsuarioStore';
 import {toast} from 'react-toastify';
@@ -12,10 +11,12 @@ export const Registro = ({showreg,handleShowReg}) => {
         nombreYApellido: "",
         email:"",
         telefono:"",
+        preguntaSecreta:"",
+        respuestaSecreta:"",
         password:""
     });
     const [userLogueado, login, logout, registrarUsuario] = useUsuarioStore()
-    const {nombreYApellido, email, telefono, password} = formRegistrationValues;
+    const {nombreYApellido, email, telefono,preguntaSecreta,respuestaSecreta, password} = formRegistrationValues;
 
     const [validated, setValidated] = useState(false);
     const [showError, setShowError] = useState(false);
@@ -26,7 +27,7 @@ export const Registro = ({showreg,handleShowReg}) => {
   /* PEDIR QUE MIGUE ME EXPLIQUE UN POCO QUE HIZO EN ESTA PARTE, entiendo que usa el hook */
     const handleRegistration = async (event) => {
       const form = event.currentTarget;
-      console.log(form.checkValidity())
+      /* console.log(form.checkValidity()) */
       if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
@@ -36,7 +37,7 @@ export const Registro = ({showreg,handleShowReg}) => {
           event.stopPropagation();
           event.preventDefault();
           try{
-            await registrarUsuario(email, password, nombreYApellido, telefono)
+            await registrarUsuario(email, password, nombreYApellido, telefono, preguntaSecreta, respuestaSecreta)
             resetRegistro()
             handleShowReg(false)
             toast.success("Usuario registrado")
@@ -90,6 +91,24 @@ export const Registro = ({showreg,handleShowReg}) => {
                 />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="validationCustom03">
+                <Form.Label>Pregunta secreta</Form.Label>
+                <Form.Control placeholder="Ingrese su pregunta secreta"
+                name="preguntaSecreta"
+                value={ preguntaSecreta }
+                onChange={ handleInputRegistrationChange } 
+                />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="validationCustom03">
+                <Form.Label>Respuesta secreta</Form.Label>
+                <Form.Control placeholder="Ingrese su pregunta secreta"
+                name="respuestaSecreta"
+                value={ respuestaSecreta }
+                onChange={ handleInputRegistrationChange } 
+                />
+            </Form.Group>       
+
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control type="password" placeholder="Ingrese su Contraseña" 
@@ -99,7 +118,7 @@ export const Registro = ({showreg,handleShowReg}) => {
                 />
                 <Form.Control.Feedback type="invalid">Por favor, ingresa una Contraseña valida</Form.Control.Feedback>
             </Form.Group>
-          
+
         </Modal.Body>
         <div className={ 'text-danger text-align-center p-2 ' + ((showError) ? 'd-block' : 'd-none')}>
             Ya se encuentra una cuenta registrada con este correo

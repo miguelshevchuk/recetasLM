@@ -11,6 +11,16 @@ $fontFamiliy: 'Open Sans';
 $grisMenu: #757575;
 $hoverMenu: #333333;
 
+.btn_forgotpass{
+    color: $titleCard;
+    text-decoration: none;
+    background: none;
+    border: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
 .btn-primary {
     background: $titleCard;
     box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
