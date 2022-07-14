@@ -40,8 +40,11 @@ export const useUsuarioStore = () => {
 
     const getUsuarioLogueado = async () => {
         try {
-            const {data} = await recetaApi.get(`/usuario`)
-            setUserLogueado(data)
+            if(localStorage.getItem("token") != null){
+                const {data} = await recetaApi.get(`/usuario`)
+                setUserLogueado(data)
+            }
+            
         } catch (error) {
             console.log(error)
         }
@@ -69,11 +72,25 @@ export const useUsuarioStore = () => {
             const {data} = await recetaApi.post(`/usuario/pregunta`,{email: email})
             return data
         } catch (error) {
-            console.log(error)
+            throw error
+        }
+    }
+
+    const recuperarPass = async (usuarioId, respuesta, password) => {
+        try {
+            await recetaApi.put(`/usuario/password/recupero`,{
+                respuestaSecreta: respuesta,
+                newPassword: password,
+                usuarioId: usuarioId
+            })
+            
+        } catch (error) {
+            throw error
         }
     }
 
     useEffect( () => {
+        
         getUsuarioLogueado();
     }, []);
 
@@ -83,7 +100,8 @@ export const useUsuarioStore = () => {
         logout,
         registrarUsuario,
         changePass,
-        getPreguntaSecreta
+        getPreguntaSecreta,
+        recuperarPass
     ]
 
 }

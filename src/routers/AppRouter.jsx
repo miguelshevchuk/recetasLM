@@ -16,6 +16,7 @@ import { DatosPersonales } from '../components/DatosPersonales/DatosPersonales';
 import { Registro } from '../components/Registro/Registro';
 import '../Style/variablesFijas.scss';
 import 'react-toastify/dist/ReactToastify.css'
+import { RecuperarPass } from '../components/Login/RecuperarPass';
 
 export const AppRouter = () => {
   
@@ -36,8 +37,8 @@ export const AppRouter = () => {
                 <Route path="/receta/carga/:recetaId" element={<FormReceta />} />
                 <Route path="/receta/registro" element={<Registro/>}/>
                 <Route path="/receta/carga/" element={<FormReceta />} />
-                <Route path="/usuario" element={<DatosPersonales />}
-                 />
+                <Route path="/usuario" element={<DatosPersonales />}/>
+                <Route path="/forgotpass" element={<RecuperarPass />}/>
             </Routes>
             
             <MiFooter></MiFooter>

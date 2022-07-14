@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
 import { Modal, Form, Button, Nav, NavDropdown } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm';
 import { useUsuarioStore } from '../../hooks/useUsuarioStore';
 import { Registro} from '../Registro/Registro'
@@ -8,6 +8,8 @@ import { ForgotPass } from './ForgotPass';
 import './LoginStyle.scss'
 
 export const Login = ({usrLogged, setUserLogged}) => {
+
+  const navigate = useNavigate();
 
     const [ formLoginValues, handleInputLoginChange, resetLogin ] = useForm({
         usuario: "",
@@ -26,7 +28,9 @@ export const Login = ({usrLogged, setUserLogged}) => {
     const [showforgot, setShowForgot] = useState(false);
     
     const handleShowForogot = ()  => {
-      setShowForgot(!showforgot)
+      handleCloseLogin()
+      navigate(`/forgotpass`)
+      //setShowForgot(!showforgot)
     }   
     const [show, setShow] = useState(false);
 
