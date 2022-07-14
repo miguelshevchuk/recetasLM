@@ -25,7 +25,6 @@ export const Login = ({usrLogged, setUserLogged}) => {
     const handleShowReg = ()  => {
       setShowReg(!showreg)
     }
-    const [showforgot, setShowForgot] = useState(false);
     
     const handleShowForogot = ()  => {
       handleCloseLogin()
@@ -166,7 +165,6 @@ export const Login = ({usrLogged, setUserLogged}) => {
         </Form>
       </Modal>      
       <Registro handleShowReg={handleShowReg} showreg={showreg}/>
-      <ForgotPass handleShowForogot={handleShowForogot} handleCloseLogin={handleCloseLogin} showforgotpass={showforgot}/>
     </>
   )
 }
