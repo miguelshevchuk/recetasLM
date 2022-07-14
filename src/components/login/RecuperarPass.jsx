@@ -68,6 +68,7 @@ export const RecuperarPass = () => {
 
     const finalizar = async () => {
         try{
+            validarPass()
             setShowError(false)
             await recuperarPass(usuarioId, respuesta, pass)
             setCompleteStep2(true)
@@ -78,6 +79,12 @@ export const RecuperarPass = () => {
             setShowError(true)
         }
         
+    }
+
+    const validarPass = () => {
+        if(pass != repeatPass){
+            throw new Error("Las contraseñas ingresadas son distintas")
+        }
     }
 
   return (
