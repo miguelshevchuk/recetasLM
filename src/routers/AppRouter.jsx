@@ -17,6 +17,7 @@ import { Registro } from '../components/Registro/Registro';
 import '../Style/variablesFijas.scss';
 import 'react-toastify/dist/ReactToastify.css'
 import { RecuperarPass } from '../components/Login/RecuperarPass';
+import { Ayuda } from '../components/ayuda/Ayuda';
 
 export const AppRouter = () => {
   
@@ -39,6 +40,7 @@ export const AppRouter = () => {
                 <Route path="/receta/carga/" element={<FormReceta />} />
                 <Route path="/usuario" element={<DatosPersonales />}/>
                 <Route path="/forgotpass" element={<RecuperarPass />}/>
+                <Route path="/ayuda" element={<Ayuda />}/>
             </Routes>
             
             <MiFooter></MiFooter>

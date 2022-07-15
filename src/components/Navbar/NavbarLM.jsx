@@ -23,7 +23,7 @@ export const NavbarLM = ({usrLogged, setUserLogged}) => {
       <Nav>
         <Link 
           className="text-decoration-none" 
-          to="/recetas/me"
+          to="/ayuda"
         >
           <Nav.Link href="#3">
           Ayuda
